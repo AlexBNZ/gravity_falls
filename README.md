@@ -81,7 +81,21 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 
 (THE REST OF MODE NOT YET STARTED)
 
-## Side Missions
+## Time Baby Missions
+
+Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (ie. 15x & 25x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
+
+* **Globnar**
+
+(NOT YET STARTED)
+
+* **The Inconveniencing**
+
+The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
+
+* **The Land Before Swine**
+
+(NOT YET STARTED)
 
 ## Additional Gameplay
 
@@ -112,19 +126,3 @@ Light the Extra Ball saucer. (CURRENTLY WORKING!)
 * **4: Quick 2-ball Multiball**
 
 Starts a quick 2-ball multiball. (NOT YET STARTED)
-
-### Time Baby Missions
-
-Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (ie. 15x & 25x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
-
-* **Globnar**
-
-(NOT YET STARTED)
-
-* **The Inconveniencing**
-
-The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
-
-* **The Land Before Swine**
-
-(NOT YET STARTED)
