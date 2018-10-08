@@ -117,7 +117,7 @@ Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell
 
 ### TOTEM Pole
 
-Spelling the word "TOTEM" confers four awards in the following order below. Once the forth award is awarded it resets to allow the four award to be collected again. (CURRENTLY WORKING!)
+Spelling the word "TOTEM" confers four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
 
 * **1: Points**
 
