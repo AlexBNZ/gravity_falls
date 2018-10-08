@@ -91,7 +91,7 @@ Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (i
 
 * **The Inconveniencing**
 
-The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
+The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (MOSTLY WORKING! - Need to add ability to add time and restore points when shots are made.)
 
 * **The Land Before Swine**
 
@@ -110,6 +110,10 @@ Spelling the word "BILL" lights up the Society shot. The player has 23 seconds t
 Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, it opens up the bunker. The player has 18 seconds to shot for the bunker and if they manage the shot the ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
 
 (THE REST OF MODE NOT YET STARTED)
+
+### Nearly Almost Dead But Not Quite!
+
+(NOT YET STARTED)
 
 ### TOTEM Pole
 
