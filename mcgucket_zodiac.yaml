@@ -1,0 +1,356 @@
+#config_version=5
+#mcgucket_zodiac config file
+
+mode:
+  start_events: go_mcgucket_z
+  stop_events: end_mcgucket_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ######## 
+
+event_player:
+  flipper_cancel: hillbilly
+  mcgucket_rant: score_board, rant_timer
+  rant_timer:
+    timer_timer_mcgucket_down_tick:
+      ticks_remaining: 20
+  
+  timer_timer_mcgucket_down_tick{ticks==15}: callout_1
+  timer_timer_mcgucket_down_tick{ticks==10}: callout_2
+  timer_timer_mcgucket_down_tick{ticks==5}: callout_3
+
+  timer_timer_mcgucket_down_complete: go_bumper
+  no_more_bill: end_mcgucket_zodiac
+  end_mcgucket_zodiac: modes_up_1
+
+  mode_mcgucket_zodiac_started: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_mcgucket_zodiac_started:
+    banjo_slide:
+      widgets:
+        - type: video
+          video: mcgucket_intro
+          anchor_y: middle
+          anchor_x: middle
+          # expire: 10s
+        - type: text
+          text: SOCIETY OF THE BLIND EYE
+          style: falls font
+          z: 2
+          y: 50%
+          expire: 4s
+        - type: text
+          text: SOCIETY OF THE BLIND EYE
+          style: falls font
+          color: black
+          z: 2
+          x: middle-1
+          y: 49%
+          expire: 4s
+  hillbilly:
+    banjo_slide:
+      action: remove
+  mcgucket_rant:
+    widgets:
+      - type: video
+        video: mcgucketloop
+        anchor_y: middle
+        anchor_x: middle
+        end_behavior: loop
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widget_player:
+  timer_timer_mcgucket_down_tick:
+    mcgucket_time:
+      action: update
+  mode_mcgucket_zodiac_started:
+    mcgucket_plan:
+      action: update
+  go_bumper:
+    bill_bumper:
+      action: update
+  mcgucket_rant:
+    mcgucket_plan:
+      action: update
+    mcgucket_time:
+      action: update 
+    shotm_1_widget:
+      action: update
+    shotm_2_widget:
+      action: update
+    shotm_3_widget:
+      action: update
+  mcgucket_tent_award_lit_hit:
+    shotm_1_widget:
+      action: remove
+  mcgucket_eball_award_lit_hit:
+    shotm_2_widget:
+      action: remove
+  mcgucket_zodiac_award_lit_hit:
+    shotm_3_widget:
+      action: remove
+
+widgets:
+  mcgucket_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  mcgucket_plan:
+    - type: text
+      text: "Hit these shots to earn millions!"
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: "Hit these shots to earn millions!"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  shotm_1_widget:
+    - type: text
+      text: Tent of Telepathy
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 60%
+    - type: text
+      text: Tent of Telepathy
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 59%
+  shotm_2_widget:
+    - type: text
+      text: Extra Ball
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 50%
+    - type: text
+      text: Extra Ball
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 49%
+  shotm_3_widget:
+    - type: text
+      text: Zodiac
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 40%
+    - type: text
+      text: Zodiac
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 39%
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########  
+
+timers:
+  timer_mcgucket_down:
+    debug: True
+    start_value: 20
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: mcgucket_rant
+        action: start
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########     
+
+variable_player:
+  three_mcgucket_shots_lit_hit:
+    score: 5000000 * (device.accruals.mcgucket_shots.value[0] + device.accruals.mcgucket_shots.value[1] + device.accruals.mcgucket_shots.value[2])
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mcgucket_rant:
+    music:
+      action: play
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..  
+
+  mcgucket_rant:
+    mcgucket_loop:
+      action: play
+      loops: -1
+  go_bumper:
+    mcgucket_loop:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+ 
+  callout_1:
+    mcgucket_callouts:
+      action: play
+  callout_2:
+    mcgucket_callouts:
+      action: play
+  callout_3:
+    mcgucket_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  mcgucket_tent_award:
+    switch: s_tent_eject
+    show_tokens:
+      led: l_tent
+    profile: mcgucket_target_profile
+  mcgucket_eball_award:
+    switch: s_eb_eject
+    show_tokens:
+      led: l_extra_ball
+    profile: mcgucket_target_profile
+  mcgucket_zodiac_award:
+    switch: s_zodiac_eject
+    show_tokens:
+      led: l_zodiac
+    profile: mcgucket_target_profile
+
+shot_profiles:
+  mcgucket_target_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+shot_groups:
+  three_mcgucket_shots:
+    shots: mcgucket_tent_award, mcgucket_eball_award, mcgucket_zodiac_award
+    enable_events: ramp_mania
+
+accruals:
+  mcgucket_shots:
+    events:
+      - mcgucket_tent_award_lit_hit
+      - mcgucket_eball_award_lit_hit
+      - mcgucket_zodiac_award_lit_hit
+    events_when_complete: go_bumper
+    reset_on_complete: False
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+show_player:
+  mode_mcgucket_zodiac_started:
+    flash_m_tent_shot:
+      show_tokens:
+        led: l_tent
+    flash_m_zodiac_shot:
+      show_tokens:
+        led: l_zodiac
+    flash_m_eball_shot:
+      show_tokens:
+        led: l_extra_ball
+
+shows:
+  flash_m_zodiac_shot:
+    - time: 0
+      lights:
+        (led): orange
+    - time: 1
+      lights:
+        (led): off
+  flash_m_eball_shot:
+    - time: 0
+      lights:
+        (led): orange
+    - time: 1
+      lights:
+        (led): off
+  flash_m_tent_shot:
+    - time: 0
+      lights:
+        (led): orange
+    - time: 1
+      lights:
+        (led): off

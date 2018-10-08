@@ -1,0 +1,162 @@
+#config_version=5
+#point_mania config file
+
+mode:
+  start_events: mega_point_run
+  stop_events: timer_timer_soos_bonus_down_complete, mode_bonus_started
+  priority: 200
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########    
+
+variable_player:
+  portal_shot_bonus_hit:
+    soos_bonus_score: 2000000
+    portals: 1
+
+  shot_slings_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_inlanes_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_outlanes_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_BILL1_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL1_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL2_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL2_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL3_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL3_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL4_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_BILL4_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_STAN1_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN1_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN2_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN2_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN3_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN3_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN4_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_STAN4_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_TOTEM1_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM1_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM2_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM2_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM3_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM3_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM4_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM4_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM5_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_TOTEM5_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_hand1_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_hand1_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_hand2_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_hand2_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_hand3_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_hand3_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_left_jet_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_left_jet_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_right_jet_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_right_jet_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_bottom_jet_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_bottom_jet_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_eball_saucer_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_eball_saucer_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_tent_saucer_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_tent_saucer_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_society_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_society_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_shack_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_shack_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_cove_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_cove_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_ZODIAC_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_ZODIAC_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_portal_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_portal_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+  shot_watertower_ramp_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_watertower_ramp_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_shack_ramp_unlit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+  shot_shack_ramp_lit_hit:
+    soos_bonus_score: current_player.mania_score + (current_player.portals * 50000)
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  portal_shot_bonus:
+    switch: s_standup_11
+    show_tokens:
+      led: l_portal
+    # profile: portal_bonus_profile

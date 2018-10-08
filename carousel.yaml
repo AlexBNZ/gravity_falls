@@ -1,0 +1,290 @@
+#config_version=5
+#carousel config file
+
+mode:
+  start_events: char_caro_go
+  stop_events: carousel_item_selected
+  code: mpf.modes.carousel.code.carousel.Carousel
+  priority: 500
+  game_mode: False
+
+mode_settings:
+  selectable_items: dipper, mabel, soos, wendy
+  select_item_events: s_start_active
+  next_item_events: s_right_flipper_active
+  previous_item_events: s_left_flipper_active
+
+event_player:
+  carousel_dipper_selected: dipper_caro_bonus_go
+  carousel_mabel_selected: mabel_caro_bonus_go
+  carousel_soos_selected: soos_caro_bonus_go
+  carousel_wendy_selected: wendy_caro_bonus_go
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  carousel_dipper_highlighted: select_dipper
+  carousel_mabel_highlighted: select_mabel
+  carousel_soos_highlighted: select_soos
+  carousel_wendy_highlighted: select_wendy
+
+slides:
+  select_dipper:
+    widgets:
+      - type: video
+        video: dipper_caro
+        anchor_y: middle
+        anchor_x: middle
+      - type: text
+        text: DIPPER PINES
+        font_size: 100
+        color: yellow
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-20
+        y: 100
+        z: 10
+      - type: text
+        text: DIPPER PINES
+        font_size: 100
+        color: black
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-21
+        y: 99
+        z: 10
+      - type: text
+        text: Every complete spelling of "BILL" adds 10,000 to your bonus.
+        style: tall title
+        font_size: 60
+        x: middle
+        y: 50
+        z: 10
+      - type: text
+        text: Every complete spelling of "BILL" adds 10,000 to your bonus.
+        style: tall title
+        font_size: 60
+        color: black
+        x: middle-1
+        y: 49
+        z: 10
+    transition:
+      type: move_in
+      direction: right
+  select_mabel:
+    widgets:
+      - type: video
+        video: mabel_caro
+        anchor_y: middle
+        anchor_x: middle
+      - type: text
+        text: MABEL PINES
+        font_size: 100
+        color: yellow
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-20
+        y: 100
+        z: 10
+      - type: text
+        text: MABEL PINES
+        font_size: 100
+        color: black
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-21
+        y: 99
+        z: 10
+      - type: text
+        text: Every ramp shot adds 1,000 to your bonus.
+        style: tall title
+        font_size: 60
+        x: middle
+        y: 50
+        z: 10
+      - type: text
+        text: Every ramp shot adds 1,000 to your bonus.
+        style: tall title
+        font_size: 60
+        color: black
+        x: middle-1
+        y: 49
+        z: 10
+    transition:
+      type: move_in
+      direction: right
+  select_soos:
+    widgets:
+      - type: video
+        video: soos_caro
+        anchor_y: middle
+        anchor_x: middle
+      - type: text
+        text: SOOS RAMIREZ
+        font_size: 100
+        color: yellow
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-20
+        y: 100
+        z: 10
+      - type: text
+        text: SOOS RAMIREZ
+        font_size: 100
+        color: black
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-21
+        y: 99
+        z: 10
+      - type: text
+        text: Every complete spelling of "STAN" adds 10,000 to your bonus.
+        style: tall title
+        font_size: 60
+        x: middle
+        y: 50
+        z: 10
+      - type: text
+        text: Every complete spelling of "STAN" adds 10,000 to your bonus.
+        style: tall title
+        font_size: 60
+        color: black
+        x: middle-1
+        y: 49
+        z: 10
+    transition:
+      type: move_in
+      direction: right
+  select_wendy:
+    widgets:
+      - type: video
+        video: wendy_caro
+        anchor_y: middle
+        anchor_x: middle
+      - type: text
+        text: WENDY CORDUROY
+        font_size: 100
+        color: yellow
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-20
+        y: 100
+        z: 10
+      - type: text
+        text: WENDY CORDUROY
+        font_size: 100
+        color: black
+        style: falls font
+        anchor_x: right
+        anchor_y: bottom
+        x: right-21
+        y: 99
+        z: 10
+      - type: text
+        text: Every complete spelling of "TOTEM" adds 15,000 to your bonus.
+        style: tall title
+        font_size: 60
+        x: middle
+        y: 50
+        z: 10
+      - type: text
+        text: Every complete spelling of "TOTEM" adds 15,000 to your bonus.
+        style: tall title
+        font_size: 60
+        color: black
+        x: middle-1
+        y: 49
+        z: 10
+    transition:
+      type: move_in
+      direction: right
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ######## 
+
+widget_player:
+  carousel_dipper_highlighted:
+    instruct:
+      action: update
+  carousel_mabel_highlighted:
+    instruct:
+      action: update
+  carousel_soos_highlighted:
+    instruct:
+      action: update
+  carousel_wendy_highlighted:
+    instruct:
+      action: update
+
+widgets:
+  instruct:
+    - type: text
+      text: Pick a character! Each alters the final score in different ways!
+      style: tall title
+      font_size: 60
+      x: middle
+      y: 800
+      z: 10
+    - type: text
+      text: Pick a character! Each alters the final score in different ways!
+      style: tall title
+      font_size: 60
+      color: black
+      x: middle-1
+      y: 799
+      z: 10
+    - type: text
+      text: Use flippers to see choices. Press START to select character.
+      style: tall title
+      font_size: 60
+      x: middle
+      y: 750
+      z: 10
+    - type: text
+      text: Use flippers to see choices. Press START to select character.
+      style: tall title
+      font_size: 60
+      color: black
+      x: middle-1
+      y: 749
+      z: 10
+
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  mode_carousel_started:
+    creepy_tune:
+      action: play
+      loops: -1

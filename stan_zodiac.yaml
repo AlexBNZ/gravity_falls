@@ -1,0 +1,289 @@
+#config_version=5
+#stan_zodiac config file
+
+mode:
+  start_events: go_stan_z
+  stop_events: end_stan_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  flipper_cancel: tattoo
+  stan_patch: score_board
+  stan_portal_award_lit_hit: stan_multiball_start
+
+  timer_timer_stan_down_tick{ticks==15}: callout_1
+  timer_timer_stan_down_tick{ticks==10}: callout_2
+  timer_timer_stan_down_tick{ticks==5}: callout_3
+
+  timer_timer_stan_down_complete: go_bumper
+  no_more_bill: end_stan_zodiac
+  end_stan_zodiac: modes_up_1
+  multiball_2ball_multiball_ball_ball_lost: go bumper, end_stan_zodiac, stan_multiball_stop
+  multiball_2ball_multiball_ended: go bumper, end_stan_zodiac, stan_multiball_stop
+
+  mode_stan_zodiac_started: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_stan_zodiac_started:
+    patch_slide:
+      widgets:
+      - type: video
+        video: stanpatch
+        anchor_y: middle
+        anchor_x: middle
+        expire: 16s
+      - type: text
+        text: THE STANCHURIAN CANDIDATE
+        style: falls font
+        x: middle
+        y: 50%
+        z: 2
+        expire: 4s
+      - type: text
+        text: THE STANCHURIAN CANDIDATE
+        style: falls font
+        color: black
+        x: middle-1
+        y: 49%
+        z: 2
+        expire: 4s
+  tattoo:
+    patch_slide:
+      action: remove
+  stan_patch:
+    conman_slide:
+      widgets:
+        - type: video
+          video: stanloop
+          anchor_y: middle
+          anchor_x: middle
+          end_behavior: loop
+  stan_portal_award_lit_hit:
+    conman_slide:
+      action: remove
+  end_stan_zodiac:
+    conman_slide:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  stan_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      y: 90%
+      x: 90%
+      z: 2
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      y: 89%
+      x: 89%
+      z: 2
+  stan_plan:
+    - type: text
+      text: "Shoot the Portal target to collect hurry up!"
+      style: tall title
+      font_size: 100
+      x: middle
+      y: 90%
+      z: 2
+    - type: text
+      text: "Shoot the Portal target to collect hurry up!"
+      style: tall title
+      font_size: 100
+      color: black
+      x: middle-1
+      y: 89%
+      z: 2
+  hurry_score:
+    - type: text
+      text: (player|stan_hurryup_value)
+      font_size: 100
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      x: middle
+      y: 35%
+      z: 2
+    - type: text
+      text: (player|stan_hurryup_value)
+      font_size: 100
+      color: black
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      x: middle-1
+      y: 34%
+      z: 2
+
+widget_player:
+  mode_stan_zodiac_started:
+    stan_plan:
+      action: update
+  timer_timer_hurry_up_tick:
+    hurry_score:
+      action: update
+  stan_patch:
+    stan_plan:
+      action: update
+  go_bumper:
+    bill_bumper:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_hurry_up:
+    debug: True
+    start_value: 200
+    end_value: -1
+    direction: down
+    tick_interval: 0.1s
+    start_running: no
+    control_events:
+      - event: stan_patch
+        action: start
+      - event: stan_portal_award_lit_hit
+        action: stop
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########     
+
+variable_player:
+  stan_patch:
+    stan_hurryup_value:
+      action: set
+      int: 15000000
+  timer_timer_hurry_up_tick{current_player.stan_hurryup_value > 0}:
+    stan_hurryup_value: -61728
+  stan_portal_award_lit_hit:
+    score: current_player.stan_hurryup_value
+  timer_timer_stan_down_complete:
+    score: current_player.stan_hurryup_value
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  stan_patch:
+    music:
+      action: play
+      
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  stan_patch:
+    shifty_stan:
+      action: play
+      loops: -1
+  go_bumper:
+    shifty_stan:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  callout_1:
+    stan_callouts:
+      action: play
+  callout_2:
+    stan_callouts:
+      action: play
+  callout_3:
+    stan_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  stan_portal_award:
+    switch: s_standup_11
+    show_tokens:
+      led: l_portal
+    profile: portal_hurry_profile
+
+shot_profiles:
+  portal_hurry_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+show_player:
+  stan_patch:
+    flash_portal_hurry_shot:
+      show_tokens:
+        led: l_portal
+
+shows:
+  flash_portal_hurry_shot:
+    - time: 0
+      lights:
+        (led): red
+    - time: 1
+      lights:
+        (led): off

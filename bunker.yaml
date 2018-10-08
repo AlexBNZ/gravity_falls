@@ -1,0 +1,321 @@
+#config_version=5
+#bunker config file
+
+mode:
+  start_events: open_bunker_start
+  stop_events: open_bunker_stop, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  flipper_cancel: open_bunker_stop
+  tree_slide_active:
+    timer_timer_bunker_down_tick:
+      ticks_remaining: 18
+
+  timer_timer_bunker_down_tick: score_board
+
+  timer_timer_video_hold_tick{ticks==0}: go_bunker
+  timer_timer_bunker_down_tick{ticks==18}: go_bunker
+
+  logicblock_bunkercount_hit{count==1}: ball_1_lock
+  logicblock_bunkercount_hit{count==2}: ball_2_lock, disable_bunker
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_bunker_started:
+    tree_slide:
+      #give instructions to player
+      widgets:
+      - type: text
+        text: Shoot for the open Bunker!
+        style: tall title
+        font_size: 100
+        z: 2
+        x: middle
+        y: 90%
+      - type: text
+        text: Shoot for the open Bunker!
+        style: tall title
+        font_size: 100
+        color: black
+        z: 2
+        x: middle-1
+        y: 89%
+  bunker_shot_award_hit:
+    hole_in_one:
+      #play hole shot video and display ball locked message
+      widgets:
+      - type: video
+        video: ballbunker
+        anchor_y: middle
+        anchor_x: middle
+        expire: 3s
+      - type: text
+        text: "Ball (bunkercount_count) Locked"
+        font_size: 200
+        z: 3
+        x: middle
+        y: 50%
+        expire: 2s
+      - type: text
+        text: "Ball (bunkercount_count) Locked"
+        font_size: 200
+        color: black
+        z: 3
+        x: middle-1
+        y: 49%
+        expire: 2s
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widget_player:
+  mode_bunker_started:
+    #keep GRAVITY FALLS onscreen
+    widget_G:
+      action: update
+    widget_R:
+      action: update
+    widget_A:
+      action: update
+    widget_V:
+      action: update
+    widget_I:
+      action: update
+    widget_T:
+      action: update
+    widget_Y:
+      action: update
+    widget_F:
+      action: update
+    widget_A2:
+      action: update
+    widget_L:
+      action: update
+    widget_L2:
+      action: update
+    widget_S:
+      action: update
+    bunkervideo:
+      action: update
+  timer_timer_bunker_down_tick:
+    #put timer onscreen
+    bunker_note:
+      action: update
+  bunker_shot_award_hit:
+    #remove timer from screen
+    bunker_note:
+      action: remove
+  timer_timer_ball1_wait_complete:
+    #play 1st third of portal activation scene
+    portal1_go:
+      action: update
+  timer_timer_ball2_wait_complete:
+    #play 2nd third of portal activation scene
+    portal2_go:
+      action: update
+  close_bunker:
+    bunker_note:
+      action: remove
+
+widgets:
+  bunker_note:
+    #onscreen counter for bunker timer
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  portal1_go:
+    #1st third of portal activation scene
+    - type: video
+      video: portalball1
+      anchor_y: middle
+      anchor_x: middle
+      expire: 23s 
+  portal2_go:
+    #2nd third of portal activation scene
+    - type: video
+      video: portalball2
+      anchor_y: middle
+      anchor_x: middle
+      expire: 40s 
+  bunkervideo:
+    - type: video
+      video: bunker_vid
+      anchor_y: middle
+      anchor_x: middle
+      control_events:
+        - event: go_bunker
+          action: pause
+        - event: close_bunker
+          action: play
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_bunker_down:
+    debug: True
+    start_value: 18
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: go_bunker
+        action: start
+      - event: bunker_shot_award_hit
+        action: stop
+
+  timer_video_hold:
+    debug: True
+    start_value: 6
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: mode_bunker_started
+        action: start
+
+  timer_ball1_wait:
+    debug: True
+    start_value: 0
+    end_value: 3
+    direction: up
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: ball_1_lock
+        action: start
+
+  timer_ball2_wait:
+    debug: True
+    start_value: 0
+    end_value: 3
+    direction: up
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: ball_2_lock
+        action: start
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ######## 
+
+variable_player:
+  logicblock_bunkercount_updated:
+    bunkercount_count:
+      int: value
+      action: set  
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  go_bunker:
+    music:
+      action: play
+  bunker_shot_award_hit:
+    music:
+      action: stop
+      fade: 0.5s
+
+sound_player:
+  mode_bunker_started:
+    vending:
+      action: play
+      loops: 0
+  go_bunker:
+    bunker_go:
+      action: play
+      loops: 0
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  bunker_shot_award:
+    switch: s_bunker_vuk
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  flash_bunker_shot:
+    - time: 0
+      lights:
+        (led): green
+    - time: 1
+      lights:
+        (led): off
+  bunker_off:
+    - duration: -1
+      lights:
+        (led): off
+
+show_player:
+  mode_bunker_started:
+    #flash bunker arrow green
+    flash_bunker_shot:
+      show_tokens:
+        led: l_bunker_arrow
+  bunker_shot_award_hit:
+    #turn bunker arrow off
+    bunker_off:
+      show_tokens:
+        led: l_bunker_arrow

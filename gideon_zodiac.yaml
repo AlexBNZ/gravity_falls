@@ -1,0 +1,253 @@
+#config_version=5
+#gideon_zodiac config file
+
+mode:
+  start_events: go_gideon_z
+  stop_events: end_gideon_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  flipper_cancel: doves
+  lil_gideon: score_board, gids_timer
+  gids_timer:
+    timer_timer_stan_down_tick:
+      ticks_remaining: 20
+  gideon_tent_award_lit_hit: gideon_bumper_fun_go
+
+  timer_timer_gideon_down_tick{ticks==15}: callout_1
+  timer_timer_gideon_down_tick{ticks==10}: callout_2
+  timer_timer_gideon_down_tick{ticks==5}: callout_3
+
+  timer_timer_gideon_down_complete: go_bumper
+  no_more_bill: end_gideon_zodiac
+  end_gideon_zodiac: modes_up_1
+
+  mode_gideon_zodiac_started: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_gideon_zodiac_started:
+    tent_slide:
+      widgets:
+        - type: video
+          video: gideonthreat
+          anchor_y: middle
+          anchor_x: middle
+        - type: text
+          text: GIDEON RISES
+          style: falls font
+          z: 2
+          y: 50%
+        - type: text
+          text: GIDEON RISES
+          style: falls font
+          color: black
+          z: 2
+          x: middle-1
+          y: 49%
+  doves:
+    tent_slide:
+      action: remove
+  lil_gideon:
+    gideon_loop_slide:
+      widgets:
+        - type: video
+          video: gideonloop
+          anchor_y: middle
+          anchor_x: middle
+          end_behavior: loop
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  gideon_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  gideon_plan:
+    - type: text
+      text: "Shoot the Tent of Telepathy target\nto enhance bumpers"
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: "Shoot the Tent of Telepathy target\nto enhance bumpers"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+
+widget_player:
+  timer_timer_gideon_down_tick:
+    gideon_time:
+      action: update
+  mode_gideon_zodiac_started:
+    gideon_plan:
+      action: update
+  go_bumper:
+    bill_bumper:
+      action: update
+  lil_gideon:
+    gideon_plan:
+      action: update
+    gideon_time:
+      action: update
+  gideon_tent_award_lit_hit:
+    gideon_time:
+      action: remove
+    gideon_plan:
+      action: remove
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_gideon_down:
+    debug: True
+    start_value: 20
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: lil_gideon
+        action: start
+      - event: gideon_tent_award_lit_hit
+        action: stop
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mode_gideon_zodiac_started:
+    music:
+      action: stop_all_sounds
+      fade: 0.5s
+  lil_gideon:
+    music:
+      action: play
+      
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  lil_gideon:
+    gideon_organ:
+      action: play
+      loops: -1
+  go_bumper:
+    gideon_organ:
+      action: stop
+  gideon_tent_award_lit_hit:
+    gideon_organ:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  callout_1:
+    gideon_callouts:
+      action: play
+  callout_2:
+    gideon_callouts:
+      action: play
+  callout_3:
+    gideon_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  gideon_tent_award:
+    switch: s_tent_eject
+    show_tokens:
+      led: l_tent
+    profile: tent_dove_profile
+
+shot_profiles:
+  tent_dove_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+show_player:
+  lil_gideon:
+    flash_tent_shot:
+      show_tokens:
+        led: l_tent
+
+shows:
+  flash_tent_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off

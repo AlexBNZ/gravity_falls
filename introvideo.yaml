@@ -1,0 +1,12 @@
+#config_version=5
+#introvideo config file
+
+mode:
+  start_events: ball_starting
+  stop_events: beans_go
+  priority: 100
+
+ queue_relay_player:
+  balldevice_bd_trough_ball_eject_attempt:
+    post: huddle_waitforit
+    wait_for: beans_go

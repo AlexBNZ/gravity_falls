@@ -1,0 +1,1074 @@
+#config_version=5
+#base config file
+
+mode:
+  start_events: ball_starting
+  priority: 100
+
+config:
+  - display
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  mode_base_started{current_player.number==1 and current_player.ball==1}: start_mode_introvideo, intro_video_go
+  # mode_base_started{current_player.number>1 or current_player.ball>1}: beans_go
+  mode_base_started{current_player.number>1 and current_player.ball==1}: char_caro_go
+  mode_base_started{current_player.ball>1}: beans_go
+  flipper_cancel: unseeing_eye
+  timer_waiting_to_plunge_timer_tick{ticks==15}: too_long
+  s_plunger_button_active: beans_stop
+
+  # slide_watch_slide_removed: score_board
+  # carousel_item_selected: beans_go
+  carousel_item_selected: no_creepy_tune, go_ticker
+  timer_bridge_timer_complete: beans_go
+  beans_go: score_board, light_save_ball, other_players
+  beans_stop: score_board
+
+  logicblock_baby_bonus_hit: baby_bonus_start
+  bill_shots_lit_complete: social_eye_start
+
+  logicblock_totempolecount_hit{count==1}: big_score
+  logicblock_totempolecount_hit{count==2}: double_mania_start
+  logicblock_totempolecount_hit{count==3}: extra_ball_lit_awarded_start
+  logicblock_totempolecount_hit{count==4}: eball_multiball_start
+
+  logicblock_super_jet_count_hit{count==1}: light_left_jet
+  logicblock_super_jet_count_hit{count==2}: light_right_jet
+  logicblock_super_jet_count_hit{count==3}: light_bottom_jet
+
+  logicblock_jet_counter_hit{count%10==5}: gnome_callout
+
+  end_dipper_zodiac: start_stan_shots
+  end_ford_zodiac: start_stan_shots
+  end_gideon_zodiac: start_stan_shots
+  end_mabel_zodiac: start_stan_shots
+  end_mcgucket_zodiac: start_stan_shots
+  end_pacifica_zodiac: start_stan_shots
+  end_robbie_zodiac: start_stan_shots
+  end_soos_zodiac: start_stan_shots
+  end_stan_zodiac: start_stan_shots
+  end_wendy_zodiac: start_stan_shots
+
+  mode_dipper_zodiac_started: zodiac_event_starts
+  mode_ford_zodiac_started: zodiac_event_starts
+  mode_gideon_zodiac_started: zodiac_event_starts
+  mode_mabel_zodiac_started: zodiac_event_starts
+  mode_mcgucket_zodiac_started: zodiac_event_starts
+  mode_pacifica_zodiac_started: zodiac_event_starts
+  mode_robbie_zodiac_started: zodiac_event_starts
+  mode_soos_zodiac_started: zodiac_event_starts
+  mode_stan_zodiac_started: zodiac_event_starts
+  mode_wendy_zodiac_started: zodiac_event_starts
+
+  timer_save_early_ball_timer_complete: no_more_saving
+
+  no_more_bill: plunger_tune, score_board
+  
+  end_baby_bonus: plunger_tune, score_board, go_for_plunge, restart_tour
+  end_social_eye: plunger_tune, score_board, go_for_plunge, restart_tour
+  open_bunker_stop: plunger_tune, score_board, go_for_plunge, restart_tour
+  stan_multiball_stop: plunger_tune, score_board, go_for_plunge, restart_tour
+  jackpot_stop: plunger_tune, score_board, go_for_plunge, restart_tour
+  double_mania_stop: plunger_tune, score_board, go_for_plunge, restart_tour
+
+  stop_globnar: plunger_tune, score_board, go_for_plunge, restart_tour
+  stop_dusk_2_dawn: plunger_tune, score_board, go_for_plunge, restart_tour
+  stop_land_before_swine: plunger_tune, score_board, go_for_plunge, restart_tour
+
+  stan_shots_lit_complete:
+    timer_timer_gofor_shack_tick:
+      ticks_remaining: 20
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  intro_video_go: 
+    watch_slide:
+      widgets:
+        - type: video
+          video: watchu
+          anchor_y: middle
+          anchor_x: middle
+      # expire: 7s
+      priority: 200
+  beans_go:
+    watch_slide:
+      action: remove
+    beans_slide:
+      widgets:
+        - type: video
+          video: beans
+          anchor_y: middle
+          anchor_x: middle
+          end_behavior: loop
+          control_events:
+            - event: s_plunger_button_active
+              action: stop
+  beans_stop:
+    beans_slide:
+      action: remove
+  unseeing_eye:
+    watch_slide:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  goal_slide:
+    - type: text
+      text: "Shoot for the Mystery Shack!"
+      style: tall title
+      font_size: 100
+      x: middle
+      y: 90%
+      z: 2
+    - type: text
+      text: "Shoot for the Mystery Shack!"
+      style: tall title
+      font_size: 100
+      color: black
+      x: middle-1
+      y: 89%
+      z: 2
+  shack_timer:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      y: 90%
+      x: 90%
+      z: 2
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      y: 89%
+      x: 89%
+      z: 2
+
+widget_player:
+  beans_stop:
+    tour_vid:
+      action: update
+  restart_tour:
+    tour_vid:
+      action: update
+  stan_shots_lit_complete:
+    goal_slide:
+      action: update
+  timer_timer_gofor_shack_down_tick:
+    shack_timer:
+      action: update
+  timer_timer_gofor_shack_down_complete:
+    shack_timer:
+      action: remove
+    goal_slide:
+      action: remove
+  shot_shack_entry_hit:
+    shack_timer:
+      action: remove
+    goal_slide:
+      action: remove
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_gofor_shack_down:
+    debug: True
+    start_value: 20
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: stan_shots_lit_complete
+        action: start
+      - event: timer_timer_gofor_shack_down_complete
+        action: stop
+      - event: shot_shack_entry_hit
+        action: stop
+  waiting_to_plunge_timer:
+    debug: True
+    start_value: 0
+    direction: up
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: beans_go
+        action: start
+      - event: s_plunger_button_active
+        action: stop
+  save_early_ball_timer:
+    debug: True
+    start_value: 10
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: s_plunger_button_active
+        action: start
+  bridge_timer:
+    debug: True
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: go_ticker
+        action: start
+
+#        ::::::::   ::::::::  :::    ::: ::::    ::: ::::::::::: :::::::::: :::::::::   :::::::: 
+#      :+:    :+: :+:    :+: :+:    :+: :+:+:   :+:     :+:     :+:        :+:    :+: :+:    :+: 
+#     +:+        +:+    +:+ +:+    +:+ :+:+:+  +:+     +:+     +:+        +:+    +:+ +:+         
+#    +#+        +#+    +:+ +#+    +:+ +#+ +:+ +#+     +#+     +#++:++#   +#++:++#:  +#++:++#++   
+#   +#+        +#+    +#+ +#+    +#+ +#+  +#+#+#     +#+     +#+        +#+    +#+        +#+    
+#  #+#    #+# #+#    #+# #+#    #+# #+#   #+#+#     #+#     #+#        #+#    #+# #+#    #+#     
+#  ########   ########   ########  ###    ####     ###     ########## ###    ###  ########  
+
+counters:
+  baby_bonus:
+    count_events: hand_shots_lit_complete
+    starting_count: 1
+    direction: up
+  billcount:
+    count_events: bill_shots_lit_complete
+    starting_count: 0
+    direction: up
+  bunkercount:
+    count_events: bunker_shot_award_hit
+    starting_count: 0
+    direction: up
+    restart_events: reset_bunker_count
+  totempolecount:
+    count_events: totem_shots_lit_complete
+    starting_count: 0
+    direction: up
+    restart_events: eball_multiball_start
+  stancount:
+    count_events: stan_shots_lit_complete
+    starting_count: 0
+    direction: up
+  wendy_totempole_count:
+    count_events: totem_shots_lit_complete
+    starting_count: 0
+    direction: up
+  mabel_rampcount:
+    count_events: ramp_shots_hit
+    starting_count: 0
+    direction: up
+
+  jet_counter:
+    count_events: sw_jet
+    starting_count: 0
+    direction: update
+    count_complete_value: 75
+    restart_events: logicblock_jet_counter_hit{count==75}
+  super_jet_count:
+    count_events: logicblock_jet_counter_hit{count==75}
+    starting_count: 0
+    direction: up
+    count_complete_value: 3
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########     
+
+variable_player:
+  logicblock_baby_bonus_updated:
+    baby_bonus_count:
+      int: value
+      action: set
+  logicblock_billcount_updated:
+    billcount_count:
+      int: value
+      action: set
+  logicblock_totempolecount_updated:
+    totempolecount_count:
+      int: value
+      action: set
+  logicblock_stancount_updated:
+    stancount_count:
+      int: value
+      action: set
+
+  dipper_caro_bonus_go: 
+    dipper_caro_bonus: billcount_count * 10000
+  mabel_caro_bonus_go:
+    mabel_caro_bonus: mabel_rampcount_count * 1000
+  soos_caro_bonus_go:
+    soos_caro_bonus: stancount_count * 10000
+  wendy_caro_bonus_go:
+    wendy_caro_bonus: wendy_totempole_count * 15000
+
+  shot_slings_hit:
+    score: 100
+  shot_inlanes_hit:
+    score: 500
+  shot_outlanes_hit:
+    score: 100
+
+  shot_BILL1_unlit_hit:
+    score: 200
+  shot_BILL1_lit_hit:
+    score: 100
+  shot_BILL2_unlit_hit:
+    score: 200
+  shot_BILL2_lit_hit:
+    score: 100
+  shot_BILL3_unlit_hit:
+    score: 200
+  shot_BILL3_lit_hit:
+    score: 100
+  shot_BILL4_unlit_hit:
+    score: 200
+  shot_BILL4_lit_hit:
+    score: 100
+  bill_shots_lit_complete:
+    score: 500
+
+  shot_STAN1_unlit_hit:
+    score: 300
+  shot_STAN1_lit_hit:
+    score: 150
+  shot_STAN2_unlit_hit:
+    score: 300
+  shot_STAN2_lit_hit:
+    score: 150
+  shot_STAN3_unlit_hit:
+    score: 300
+  shot_STAN3_lit_hit:
+    score: 150
+  shot_STAN4_unlit_hit:
+    score: 300
+  shot_STAN4_lit_hit:
+    score: 150
+  stan_shots_lit_complete:
+    score: 500
+
+  shot_TOTEM1_unlit_hit:
+    score: 400
+  shot_TOTEM1_lit_hit:
+    score: 200
+  shot_TOTEM2_unlit_hit:
+    score: 400
+  shot_TOTEM2_lit_hit:
+    score: 200
+  shot_TOTEM3_unlit_hit:
+    score: 400
+  shot_TOTEM3_lit_hit:
+    score: 200
+  shot_TOTEM4_unlit_hit:
+    score: 400
+  shot_TOTEM4_lit_hit:
+    score: 200
+  shot_TOTEM5_unlit_hit:
+    score: 400
+  shot_TOTEM5_lit_hit:
+    score: 200
+  totem_shots_lit_complete:
+    score: 1000
+
+  shot_hand1_unlit_hit:
+    score: 250
+  shot_hand1_lit_hit:
+    score: 100
+  shot_hand2_unlit_hit:
+    score: 250
+  shot_hand2_lit_hit:
+    score: 100
+  shot_hand3_unlit_hit:
+    score: 250
+  shot_hand3_lit_hit:
+    score: 100
+  hand_shots_lit_complete:
+    score: 750
+
+  shot_left_jet_hit:
+    score: 200
+  shot_left_jet_lit_hit:
+    score: 400
+  shot_right_jet_hit:
+    score: 200
+  shot_right_jet_lit_hit:
+    score: 400
+  shot_bottom_jet_hit:
+    score: 200
+  shot_bottom_jet_lit_hit:
+    score: 400
+
+  shot_eball_saucer_hit:
+    score: 50
+  shot_eball_saucer_lit_hit:
+    score: 100
+  shot_tent_saucer_hit:
+    score: 150
+  shot_tent_saucer_lit_hit:
+    score: 300
+
+  shot_society_hit:
+    score: 1000
+  shot_society_lit_hit:
+    score: 2000
+  shot_shack_entry_hit:
+    score: 2000
+  shot_cove_unlit_hit:
+    score: 500
+  shot_cove_lit_hit:
+    score: 1000
+  shot_ZODIAC_unlit_hit:
+    score: 500
+  shot_ZODIAC_lit_hit:
+    score: 1000
+  shot_portal_unlit_hit:
+    score: 300
+  shot_portal_lit_hit:
+    score: 1000
+
+  shot_watertower_ramp_unlit_hit:
+    score: 500
+  shot_watertower_ramp_lit_hit:
+    score: 1000
+  shot_shack_ramp_unlit_hit:
+    score: 500
+  shot_shack_ramp_lit_hit:
+    score: 1000
+
+  big_score:
+    score: 100000
+
+  little_big_score:
+    score: 10000
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  tilt:
+    music:
+      action: pause
+
+  no_creepy_tune:
+    music:
+      action: stop_all_sounds
+      fade: 0.5s
+
+  mode_baby_bonus_started:
+    music:
+      action: pause
+      fade: 0.5s
+  mode_bunker_started:
+    music:
+      action: stop
+      fade: 0.5s
+  mode_2ball_multiball_started:
+    music:
+      action: stop
+      fade: 0.5s
+
+  go_for_plunge:
+    music:
+      action: play
+      fade: 0.2s
+
+  award_hit_bill:
+    music:
+      action: pause
+      fade: 0.5s
+
+  zodiac_event_starts:
+    music:
+      action: stop_all_sounds
+      fade: 0.5s
+  
+  no_more_bill:
+    music:
+      action: play
+      fade: 0.2s
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  beans_go:
+    wait_to_plunge:
+      action: play
+      loops: -1
+  s_plunger_button_active:
+    plunged:
+      action: play
+      loops: -1
+    wait_to_plunge:
+      action: stop
+  tilt:
+    tilt_mabel:
+      action: play
+
+  plunger_tune:
+    plunged:
+      action: play
+      loops: -1
+
+  timer_timer_society_down_complete:
+    plunged:
+      action: play
+      loops: -1
+
+# ..####...######..##..##.
+# .##......##.......####..
+# ..####...####......##...
+# .....##..##.......####..
+# ..####...##......##..##.
+
+  s_left_slingshot_active:
+    pecker:
+      action: play
+  s_right_slingshot_active:
+    pecker:
+      action: play
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  # ball_drain:
+  #   ball_drained:
+  #     action: play
+  too_long:
+    standing_there:
+      action: play
+
+  ball_save_early_ball_loss_save_saving_ball:
+    ball_saved_callouts:
+      action: play
+
+  gnome_callout:
+    jet_bumper_callouts:
+      action: play
+
+  stan_shots_lit_complete:
+    worthit:
+      action: play
+  totem_shots_hit:
+    totem_target_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  shot_slings:
+    switch: s_left_slingshot, s_right_slingshot
+  shot_inlanes:
+    switch: s_left_inlane, s_right_inlane
+  shot_outlanes:
+    switch: s_left_outlane, s_right_outlane
+
+  shot_watertower_ramp:
+    switch: s_left_ramp_exit
+    show_tokens:
+      led: l_left_ramp_arrow
+    profile: leftramp_profile
+  shot_shack_ramp:
+    switch: s_right_ramp_exit
+    show_tokens:
+      led: l_right_ramp_arrow
+    profile: rightramp_profile
+
+  shot_eball_saucer:
+    switch: s_eb_eject
+  shot_tent_saucer:
+    switch: s_tent_eject
+
+  shot_society:
+    switch: s_society_rollover
+    disable_events: mode_base_started, shot_society_hit
+    enable_events: bill_shots_lit_complete
+  shot_shack_entry:
+    switch: s_shack_rollover
+    profile: shack_profile
+    enable_events: stan_shots_lit_complete
+    disable_events: mode_base_started
+  shot_cove:
+    switch: s_cove_rollover
+
+  shot_BILL1:
+    switch: s_standup_1
+    show_tokens:
+      led: l_bill1
+    profile: bill_profile
+  shot_BILL2:
+    switch: s_standup_2
+    show_tokens:
+      led: l_bill2
+    profile: bill_profile
+  shot_BILL3:
+    switch: s_standup_3
+    show_tokens:
+      led: l_bill3
+    profile: bill_profile
+  shot_BILL4:
+    switch: s_standup_4
+    show_tokens:
+      led: l_bill4
+    profile: bill_profile
+
+  shot_STAN1:
+    switch: s_drop_1
+    show_tokens:
+       led: l_stan1
+    profile: stan_profile
+  shot_STAN2:
+    switch: s_drop_2
+    show_tokens:
+       led: l_stan2
+    profile: stan_profile
+  shot_STAN3:
+    switch: s_drop_3
+    show_tokens:
+       led: l_stan3
+    profile: stan_profile
+  shot_STAN4:
+    switch: s_drop_4
+    show_tokens:
+       led: l_stan4
+    profile: stan_profile
+
+  shot_hand1:
+    switch: s_hand1_rollover
+    show_tokens:
+       led: l_hand1
+    profile: hand_profile
+  shot_hand2:
+    switch: s_hand2_rollover
+    show_tokens:
+       led: l_hand2
+    profile: hand_profile
+  shot_hand3:
+    switch: s_hand3_rollover
+    show_tokens:
+       led: l_hand3
+    profile: hand_profile
+
+  shot_ZODIAC:
+    switch: s_zodiac_eject
+    profile: zodiac_profile
+    enable_events: stan_shots_lit_complete
+    advance_events: shot_shack_entry_hit, shot_ZODIAC_lit_hit
+
+  shot_TOTEM1:
+    switch: s_standup_6
+    show_tokens:
+        led: l_totem1
+    profile: totem_profile
+  shot_TOTEM2:
+    switch: s_standup_7
+    show_tokens:
+        led: l_totem2
+    profile: totem_profile
+  shot_TOTEM3:
+    switch: s_standup_8
+    show_tokens:
+        led: l_totem3
+    profile: totem_profile
+  shot_TOTEM4:
+    switch: s_standup_9
+    show_tokens:
+        led: l_totem4
+    profile: totem_profile
+  shot_TOTEM5:
+    switch: s_standup_10
+    show_tokens:
+        led: l_totem5
+    profile: totem_profile
+
+  shot_jet:
+    switch: s_left_jet, s_right_jet, s_bottom_jet
+
+  shot_left_jet:
+    switch: s_left_jet
+    show_tokens:
+        led: l_left_jet
+    profile: left_jet_profile
+  shot_right_jet:
+    switch: s_right_jet
+    show_tokens:
+        led: l_right_jet
+    profile: jet_right_profile
+  shot_bottom_jet:
+    switch: s_bottom_jet
+    show_tokens:
+        led: l_bottom_jet
+    profile: jet_bottom_profile
+
+shot_groups:
+  stan_shots:
+    shots: shot_STAN1, shot_STAN2, shot_STAN3, shot_STAN4
+    reset_events: stan_shots_lit_complete
+    enable_events: start_stan_shots
+    disable_events: shot_shack_entry_hit
+
+  bill_shots:
+    shots: shot_BILL1, shot_BILL2, shot_BILL3, shot_BILL4
+    reset_events: bill_shots_lit_complete
+
+  hand_shots:
+    shots: shot_hand1, shot_hand2, shot_hand3
+    reset_events: hand_shots_lit_complete
+
+  totem_shots:
+    shots: shot_TOTEM1, shot_TOTEM2, shot_TOTEM3, shot_TOTEM4, shot_TOTEM5
+    reset_events: totem_shots_lit_complete
+
+  ramp_shots:
+    shots: shot_watertower_ramp, shot_shack_ramp
+
+shot_profiles:
+  leftramp_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+
+  rightramp_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+
+  shack_profile:
+    states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+    loop: True
+    advance_on_hit: False
+
+  zodiac_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+
+  # jet_profile:
+  #    states:
+  #       - name: unlit
+  #         show: off
+  #       - name: lit
+  #         show: on
+  #    loop: True
+  #    advance_on_hit: False
+
+  left_jet_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+  jet_right_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+  jet_bottom_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+
+  portal_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+     advance_on_hit: False
+
+  bill_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+
+  stan_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+
+  hand_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+
+  totem_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  bill_lit_up:
+    - duration: -1
+      lights:
+        (led): yellow
+  bill_unlit:
+    - duration: -1
+      lights:
+        (led): off
+  light_portal_1:
+    - duration: -1
+      lights:
+        (led): white
+  light_portal_2:
+    - duration: -1
+      lights:
+        (led): white
+  left_jet_on:
+    - duration: -1
+      lights:
+        (led): red
+     # - time: 0.5
+     #   lights:
+     #     (led): off
+  right_jet_on:
+    - duration: -1
+      lights:
+        (led): red
+     # - time: 0.5
+     #   lights:
+     #     (led): off
+  bottom_jet_on:
+    - duration: -1
+      lights:
+        (led): red
+     # - time: 0.5
+     #   lights:
+     #     (led): off
+  flash_sling_blue:
+    - time: 0
+      lights:
+         (led): blue
+    - time: 0.5
+      lights:
+         (led): off
+  flash_jet_green:
+    - time: 0
+      lights:
+         (led): green
+    - time: 0.5
+      lights:
+         (led): off
+  flash_zodiac_shot:
+    - time: 0
+      lights:
+         (led): red
+    - time: 0.5
+      lights:
+         (led): off
+  light_zodiac_shot:
+    - time: 0
+      lights:
+         (led): purple
+  light_shack_shot:
+    - time: 0
+      lights:
+         (led): green
+    - time: 0.5
+      lights:
+         (led): off
+  totem_pole_show:
+    - duration: -1
+      lights:
+        l_totem_pole1: off
+        l_totem_pole2: off
+        l_totem_pole3: off
+        l_totem_pole4: off
+    - duration: -1
+      lights:
+        l_totem_pole1: purple
+        l_totem_pole2: off
+        l_totem_pole3: off
+        l_totem_pole4: off
+    - duration: -1
+      lights:
+        l_totem_pole1: purple
+        l_totem_pole2: blue
+        l_totem_pole3: off
+        l_totem_pole4: off
+    - duration: -1
+      lights:
+        l_totem_pole1: purple
+        l_totem_pole2: blue
+        l_totem_pole3: yellow
+        l_totem_pole4: off
+    - duration: -1
+      lights:
+        l_totem_pole1: purple
+        l_totem_pole2: blue
+        l_totem_pole3: yellow
+        l_totem_pole4: red
+
+show_player:
+  light_save_ball:
+    bill_lit_up:
+      show_tokens:
+        led: l_ball_save
+  no_more_saving:
+    bill_unlit:
+      show_tokens:
+        led: l_ball_save
+  ball_1_lock:
+    light_portal_1:
+      show_tokens:
+        led: l_left_portal
+  ball_2_lock:
+    light_portal_2:
+      show_tokens:
+        led: l_right_portal
+  light_left_jet:
+    left_jet_on:
+      show_tokens:
+        led: l_left_jet
+  light_right_jet:
+    right_jet_on:
+      show_tokens:
+        led: l_right_jet
+  light_bottom_jet:
+    bottom_jet_on:
+      show_tokens:
+        led: l_bottom_jet
+  # player_totempolecount_updated:
+  #   totem_pole_show:
+  #     start_step: current_player.totempolecount_count
+  stan_shots_lit_complete:
+    light_shack_shot:
+      show_tokens:
+         led: l_shack_arrow
+      speed: 2
+  timer_timer_gofor_shack_down_complete:
+    light_shack_shot:
+      action: stop
+  shot_shack_entry_hit:
+    light_zodiac_shot:
+      show_tokens:
+         led: l_zodiac
+    light_shack_shot:
+      action: stop
+  shot_ZODIAC_lit_hit:
+    light_zodiac_shot:
+      action: stop
+  shot_ZODIAC_unlit_hit:
+    flash_zodiac_shot:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_zodiac
+  s_left_slingshot_active:
+    flash_sling_blue:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_left_slingshot
+  s_right_slingshot_active:
+    flash_sling_blue:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_right_slingshot
+  s_left_jet_active:
+    flash_jet_green:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_left_jet
+  s_right_jet_active:
+    flash_jet_green:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_right_jet
+  s_bottom_jet_active:
+    flash_jet_green:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_bottom_jet

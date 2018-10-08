@@ -1,0 +1,474 @@
+#config_version=5
+#robbie_zodiac config file
+
+mode:
+  start_events: go_robbie_z
+  stop_events: end_robbie_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########  
+
+event_player:
+  flipper_cancel: muffin
+  sad_song: score_board, sad_timer
+  sad_timer:
+    timer_timer_robbie_down_tick:
+      ticks_remaining: 10
+  watertower_ramp_award_lit_hit: ramp_mania
+  ramp_mania: score_board, ramp_timer
+  ramp_timer:
+    timer_timer_sad_robbie_down_tick:
+      ticks_remaining: 20
+
+  timer_timer_sad_robbie_down_tick{ticks==15}: callout_1
+  timer_timer_sad_robbie_down_tick{ticks==10}: callout_2
+  timer_timer_sad_robbie_down_tick{ticks==5}: callout_3
+
+  timer_timer_sad_robbie_down_complete: go_bumper
+  timer_timer_robbie_down_complete: go_bumper
+  no_more_bill: end_robbie_zodiac
+  end_robbie_zodiac: modes_up_1
+
+  mode_robbie_zodiac_started: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_robbie_zodiac_started:
+    guitar_slide:
+      widgets:
+        - type: video
+          video: wendywendy
+          anchor_y: middle
+          anchor_x: middle
+          expire: 8.5s
+        - type: text
+          text: THE LOVE GOD
+          style: falls font
+          z: 2
+          y: 50%
+          expire: 4s
+        - type: text
+          text: THE LOVE GOD
+          style: falls font
+          color: black
+          z: 2
+          x: middle-1
+          y: 49%
+          expire: 4s
+  ramp_mania:
+    slide_shot_list:
+      widgets:
+        - type: text
+          text: "Shoot for the following shots to gain millions!"
+          style: tall title
+          font_size: 100
+          z: 2
+          y: 90%
+        - type: text
+          text: "Shoot for the following shots to gain millions!"
+          style: tall title
+          font_size: 100
+          color: black
+          z: 2
+          x: middle-1
+          y: 89%
+        - type: video
+          video: robbieloop
+          anchor_y: middle
+          anchor_x: middle
+          end_behavior: loop
+  sad_song:
+    boombox_slide:
+      widgets:
+        - type: video
+          video: boom_box
+          anchor_y: middle
+          anchor_x: middle
+          expire: 11.5s
+          control_events:
+            - event: ramp_mania
+              action: stop
+  muffin:
+    guitar_slide:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  info_widget:
+    - type: text
+      text: "Shoot for the Watertower ramp!"
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: "Shoot for the Watertower ramp!"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  robbie_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  sad_robbie_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  shot_1_widget:
+    - type: text
+      text: Watertower Ramp
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 60%
+    - type: text
+      text: Watertower Ramp
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 59%
+  shot_2_widget:
+    - type: text
+      text: Mystery Shack Ramp
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 50%
+    - type: text
+      text: Mystery Shack Ramp
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 49%
+  shot_3_widget:
+    - type: text
+      text: Trembley's Cove
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 40%
+    - type: text
+      text: Trembley's Cove
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 39%
+
+widget_player:
+  watertower_ramp_award_lit_hit:
+    info_widget:
+      action: remove
+    robbie_time:
+      action: remove
+  mode_robbie_zodiac_started:
+    info_widget:
+      action: update
+  sad_song:
+    info_widget:
+      action: update
+  timer_timer_robbie_down_tick:
+    robbie_time:
+      action: update
+  timer_timer_sad_robbie_down_tick:
+    sad_robbie_time:
+      action: update
+  ramp_mania:
+    shot_1_widget:
+      action: update
+    shot_2_widget:
+      action: update
+    shot_3_widget:
+      action: update
+  watertower_shot1_award_lit_hit:
+    shot_1_widget:
+      action: remove
+  shack_shot2_award_lit_hit:
+    shot_2_widget:
+      action: remove
+  cove_shot3_award_lit_hit:
+    shot_3_widget:
+      action: remove
+  go_bumper:
+    bill_bumper:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_robbie_down:
+    debug: True
+    start_value: 10
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: sad_song
+        action: start
+      - event: ramp_mania
+        action: stop
+  timer_sad_robbie_down:
+    debug: True
+    start_value: 20
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: ramp_mania
+        action: start
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########     
+
+variable_player:
+  watertower_ramp_award_lit_hit: 
+    score: 100000
+  three_robbie_shots_lit_hit:
+    score: 5000000 * (device.accruals.robbie_shots.value[0] + device.accruals.robbie_shots.value[1] + device.accruals.robbie_shots.value[2])
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  sad_song:
+    music:
+      action: play
+      
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  ramp_mania:
+    robbie_theme:
+      action: play
+      loops: -1
+  go_bumper:
+    robbie_theme:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  watertower_shot1_award_lit_hit:
+    dorks:
+      action: play
+  shack_shot2_award_lit_hit:
+    mascara:
+      action: play
+  cove_shot3_award_lit_hit:
+    pants:
+      action: play
+
+  callout_1:
+    robbie_callouts:
+      action: play
+  callout_2:
+    robbie_callouts:
+      action: play
+  callout_3:
+    robbie_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  watertower_ramp_award:
+    switch: s_left_ramp_exit
+    show_tokens:
+      led: l_left_ramp_arrow
+    profile: w_ramp_profile
+
+  watertower_shot1_award:
+    switch: s_left_ramp_exit
+    show_tokens:
+      led: l_left_ramp_arrow
+    profile: water_ramp_profile
+    enable_events: ramp_mania
+  shack_shot2_award:
+    switch: s_right_ramp_exit
+    show_tokens:
+      led: l_right_ramp_arrow
+    profile: s_ramp_profile
+    enable_events: ramp_mania
+  cove_shot3_award:
+    switch: s_cove_rollover
+    show_tokens:
+      led: l_cove
+    profile: cove_profile
+    enable_events: ramp_mania
+
+shot_groups:
+  three_robbie_shots:
+    shots: watertower_shot1_award, shack_shot2_award, cove_shot3_award
+    enable_events: ramp_mania
+
+accruals:
+  robbie_shots:
+    events:
+      - watertower_shot1_award_lit_hit
+      - shack_shot2_award_lit_hit
+      - cove_shot3_award_lit_hit
+    events_when_complete: go_bumper
+    enable_events: ramp_mania
+    reset_on_complete: False
+
+shot_profiles:
+  w_ramp_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+  water_ramp_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+  s_ramp_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+  cove_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  flash_wramp_shot:
+    - time: 0
+      lights:
+        (led): green
+    - time: 1
+      lights:
+        (led): off
+
+  flash_w2ramp_shot:
+    - time: 0
+      lights:
+        (led): red
+    - time: 1
+      lights:
+        (led): off
+  flash_sramp_shot:
+    - time: 0
+      lights:
+        (led): red
+    - time: 1
+      lights:
+        (led): off
+  flash_cove2_shot:
+    - time: 0
+      lights:
+        (led): red
+    - time: 1
+      lights:
+        (led): off
+
+show_player:
+  mode_robbie_zodiac_started:
+    flash_wramp_shot:
+      show_tokens:
+        led: l_left_ramp_arrow
+  ramp_mania:
+    flash_w2ramp_shot:
+      show_tokens:
+        led: l_left_ramp_arrow
+    flash_sramp_shot:
+      show_tokens:
+        led: l_right_ramp_arrow
+    flash_cove2_shot:
+      show_tokens:
+        led: l_cove

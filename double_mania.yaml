@@ -1,0 +1,290 @@
+#config_version=5
+#double_mania config file
+
+mode:
+  start_events: double_mania_start
+  stop_events: double_mania_stop, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ######## 
+
+event_player: 
+  slide_2_active:
+    timer_timer_double_down_tick:
+      ticks_remaining: 28
+  flipper_cancel: golfcart  
+  mode_double_mania_started: score_board
+  timer_timer_double_down_tick: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_double_mania_started:
+    slide_1:
+      widgets:
+      - type: video
+        video: 2places
+        anchor_y: middle
+        anchor_x: middle
+        expire: 7s
+  go_mania:
+    slide_2:
+      widgets:
+      - type: video
+        video: double_run
+        anchor_y: middle
+        anchor_x: middle
+        z: 1
+  golfcart:
+    slide_1:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:  
+  timer_widget:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  mania_name:
+    - type: text
+      text: DOUBLE MANIA
+      style: falls font
+      z: 10
+      y: 50%
+      expire: 4s
+    - type: text
+      text: DOUBLE MANIA
+      style: falls font
+      color: black
+      z: 10
+      x: middle-1
+      y: 49%
+      expire: 4s
+  mania_rules:
+    - type: text
+      text: "All shots worth double!"
+      style: tall title
+      font_size: 100
+      z: 10
+      y: 90%
+      expire: 4s
+    - type: text
+      text: "All shots worth double!"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 10
+      x: middle-1
+      y: 89%
+      expire: 4s
+
+widget_player:
+  mode_double_mania_started:
+    mania_name:
+      action: update
+    mania_rules:
+      action: update
+  timer_timer_double_down_tick:
+    timer_widget:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_double_down:
+    debug: True
+    start_value: 28
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: go_mania
+        action: start
+    restart_on_complete: True
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mode_double_mania_started:
+    music:
+      action: stop
+      fade: 0.5s
+  go_mania:
+    music:
+      action: play
+
+sound_player:
+  go_mania:
+    timer_30:
+      action: play
+      loops: 0
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########   
+
+variable_player:
+  shot_slings_hit:
+    score: 100
+  shot_inlanes_hit:
+    score: 500
+  shot_outlanes_hit:
+    score: 100
+
+  shot_BILL1_bill_profile_unlit_hit:
+    score: 200
+  shot_BILL1_bill_profile_lit_hit:
+    score: 100
+  shot_BILL2_bill_profile_unlit_hit:
+    score: 200
+  shot_BILL2_bill_profile_lit_hit:
+    score: 100
+  shot_BILL3_bill_profile_unlit_hit:
+    score: 200
+  shot_BILL3_bill_profile_lit_hit:
+    score: 100
+  shot_BILL4_bill_profile_unlit_hit:
+    score: 200
+  shot_BILL4_bill_profile_lit_hit:
+    score: 100
+  bill_shots_bill_profile_lit_complete:
+    score: 500
+
+  shot_STAN1_stan_profile_unlit_hit:
+    score: 300
+  shot_STAN1_stan_profile_lit_hit:
+    score: 150
+  shot_STAN2_stan_profile_unlit_hit:
+    score: 300
+  shot_STAN2_stan_profile_lit_hit:
+    score: 150
+  shot_STAN3_stan_profile_unlit_hit:
+    score: 300
+  shot_STAN3_stan_profile_lit_hit:
+    score: 150
+  shot_STAN4_stan_profile_unlit_hit:
+    score: 300
+  shot_STAN4_stan_profile_lit_hit:
+    score: 150
+  stan_shots_stan_profile_lit_complete:
+    score: 500
+
+  shot_TOTEM1_totem_profile_unlit_hit:
+    score: 400
+  shot_TOTEM1_totem_profile_lit_hit:
+    score: 200
+  shot_TOTEM2_totem_profile_unlit_hit:
+    score: 400
+  shot_TOTEM2_totem_profile_lit_hit:
+    score: 200
+  shot_TOTEM3_totem_profile_unlit_hit:
+    score: 400
+  shot_TOTEM3_totem_profile_lit_hit:
+    score: 200
+  shot_TOTEM4_totem_profile_unlit_hit:
+    score: 400
+  shot_TOTEM4_totem_profile_lit_hit:
+    score: 200
+  shot_TOTEM5_totem_profile_unlit_hit:
+    score: 400
+  shot_TOTEM5_totem_profile_lit_hit:
+    score: 200
+  totem_shots_totem_profile_lit_complete:
+    score: 1000
+
+  shot_hand1_hand_profile_unlit_hit:
+    score: 250
+  shot_hand1_hand_profile_lit_hit:
+    score: 100
+  shot_hand2_hand_profile_unlit_hit:
+    score: 250
+  shot_hand2_hand_profile_lit_hit:
+    score: 100
+  shot_hand3_hand_profile_unlit_hit:
+    score: 250
+  shot_hand3_hand_profile_lit_hit:
+    score: 100
+  hand_shots_hand_profile_lit_complete:
+    score: 750
+
+  shot_jet_hit:
+    score: 200
+  shot_jet_lit_hit:
+    score: 400
+
+  shot_eball_saucer_hit:
+    score: 50
+
+  shot_tent_saucer_hit:
+    score: 150
+
+  shot_society_hit:
+    score: 1000
+
+  shot_shack_hit:
+    score: 1000
+
+  shot_ZODIAC_zodiac_profile_unlit_hit:
+    score: 500
+  shot_ZODIAC_zodiac_profile_lit_hit:
+    score: 1000
+
+  shot_portal_portal_profile_unlit_hit:
+    score: 300
+  shot_portal_portal_profile_lit_hit:
+    score: 1000
+
+  shot_watertower_ramp_leftramp_profile_unlit_hit:
+    score: 500
+  shot_watertower_ramp_leftramp_profile_lit_hit:
+    score: 1000
+  shot_shack_ramp_rightramp_profile_unlit_hit:
+    score: 500
+  shot_shack_ramp_rightramp_profile_lit_hit:
+    score: 1000

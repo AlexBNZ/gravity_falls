@@ -1,0 +1,272 @@
+#config_version=5
+#gideon_bumper_fun config file
+
+mode:
+  start_events: gideon_bumper_fun_go
+  stop_events: gideon_bumper_fun_stop, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  mode_gideon_bumper_fun_started: score_board
+  timer_timer_bumper_down_complete: gideon_bumper_fun_stop, go_bumper
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  bumper_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  gideon_bump:
+    - type: text
+      text: "Lit bumpers add 100,000.\nFour hits adds additional 3 million!"
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: "Lit bumpers add 100,000.\nFour hits adds additional 3 million!"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  bumper_score:
+    - type: text
+      text: (player|gideon_bonus_score)
+      font_size: 100
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      y: 35%
+    - type: text
+      text: (player|gideon_bonus_score)
+      font_size: 100
+      color: black
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      x: middle-1
+      y: 34%
+
+widget_player:
+  timer_timer_bumper_down_tick:
+    bumper_time:
+      action: update
+  mode_gideon_bumper_fun_started:
+    gideon_bump:
+      action: update
+    bumper_score:
+      action: update
+  go_bumper:
+    bill_bumper:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_bumper_down:
+    debug: True
+    start_value: 30
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: mode_gideon_bumper_fun_started
+        action: start
+      - event: timer_timer_bumper_down_completed
+        action: stop
+
+#        ::::::::   ::::::::  :::    ::: ::::    ::: ::::::::::: :::::::::: :::::::::   :::::::: 
+#      :+:    :+: :+:    :+: :+:    :+: :+:+:   :+:     :+:     :+:        :+:    :+: :+:    :+: 
+#     +:+        +:+    +:+ +:+    +:+ :+:+:+  +:+     +:+     +:+        +:+    +:+ +:+         
+#    +#+        +#+    +:+ +#+    +:+ +#+ +:+ +#+     +#+     +#++:++#   +#++:++#:  +#++:++#++   
+#   +#+        +#+    +#+ +#+    +#+ +#+  +#+#+#     +#+     +#+        +#+    +#+        +#+    
+#  #+#    #+# #+#    #+# #+#    #+# #+#   #+#+#     #+#     #+#        #+#    #+# #+#    #+#     
+#  ########   ########   ########  ###    ####     ###     ########## ###    ###  ########  
+
+counters:
+  left_jet_counter:
+    count_events: left_bumper_lit_hit
+    starting_count: 0
+    direction: update
+    count_complete_value: 4
+  right_jet_counter:
+    count_events: right_bumper_lit_hit
+    starting_count: 0
+    direction: update
+    count_complete_value: 4
+  bottom_jet_counter:
+    count_events: bottom_bumper_lit_hit
+    starting_count: 0
+    direction: update
+    count_complete_value: 4
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########    
+
+variable_player:
+  mode_gideon_bumper_fun_started:
+    gideon_bonus_score:
+      action: set
+      int: 2000000
+  left_bumper_lit_hit:
+    gideon_bonus_score: 100000
+  right_bumper_lit_hit:
+    gideon_bonus_score: 100000
+  bottom_bumper_lit_hit:
+    gideon_bonus_score: 100000
+  logicblock_left_jet_counter_hit{count==4}:
+    gideon_bonus_score: 3000000
+  logicblock_right_jet_counter_hit{count==4}:
+    gideon_bonus_score: 3000000
+  logicblock_bottom_jet_counter_hit{count==4}:
+    gideon_bonus_score: 3000000
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mode_gideon_bumper_fun_started:
+    music:
+      action: play
+      
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  mode_gideon_bumper_fun_started:
+    gideon_spooky:
+      action: play
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  left_bumper:
+    switch: s_left_jet
+    show_tokens:
+      led: l_left_jet
+    profile: bumper_profile
+  right_bumper:
+    switch: s_right_jet
+    show_tokens:
+      led: l_right_jet
+    profile: bumper_profile
+  bottom_bumper:
+    switch: s_bottom_jet
+    show_tokens:
+      led: l_bottom_jet
+    profile: bumper_profile
+
+shot_profiles:
+  bumper_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+    advance_on_hit: False
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+show_player:
+  mode_gideon_bumper_fun_started:
+    light_bumper:
+      show_tokens:
+        led: l_left_jet, l_right_jet, l_bottom_jet
+  logicblock_left_jet_counter_hit{count==4}:
+    l_bumper_off:
+      show_tokens:
+        led: l_left_jet
+  logicblock_right_jet_counter_hit{count==4}:
+    r_bumper_off:
+      show_tokens:
+        led: l_right_jet
+  logicblock_bottom_jet_counter_hit{count==4}:
+    b_bumper_off:
+      show_tokens:
+        led: l_bottom_jet
+
+shows:
+  light_bumper:
+    - time: 0
+      lights:
+        (led): purple
+  l_bumper_off:
+    - time: 0
+      lights:
+        (led): off
+  r_bumper_off:
+    - time: 0
+      lights:
+        (led): off
+  b_bumper_off:
+    - time: 0
+      lights:
+        (led): off

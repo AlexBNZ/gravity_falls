@@ -1,0 +1,376 @@
+#config_version=5
+#soos_zodiac config file
+
+mode:
+  start_events: go_soos_z
+  stop_events: end_soos_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  flipper_cancel: thunderstruck  
+  bring_thunder: score_board, timer_count
+  timer_count:
+    timer_timer_soos_down_tick:
+      ticks_remaining: 16
+  soos_ramp_award_lit_hit: mega_point_run
+
+  timer_timer_soos_bonus_down_tick{ticks==15}: callout_1
+  timer_timer_soos_bonus_down_tick{ticks==10}: callout_2
+  timer_timer_soos_bonus_down_tick{ticks==5}: callout_3
+
+  no_more_bill: end_soos_zodiac
+  timer_timer_soos_down_complete: go_bumper
+  timer_timer_soos_bonus_down_complete: go_bumper
+  end_soos_zodiac: modes_up_1
+
+  mode_soos_zodiac_started: score_board
+  mega_point_run: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_soos_zodiac_started:
+    thunder_slide:
+      widgets:
+      - type: video
+        video: thunder
+        anchor_y: middle
+        anchor_x: middle
+        expire: 4s
+      - type: text
+        text: SOOS AND THE REAL GIRL
+        style: falls font
+        z: 2
+        y: 50%
+        expire: 4s
+      - type: text
+        text: SOOS AND THE REAL GIRL
+        style: falls font
+        color: black
+        z: 2
+        x: middle-1
+        y: 49%
+        expire: 4s
+  mega_point_run:
+    extra_slide:
+      widgets:
+      - type: text
+        text: "All shots worth 200,000 for 20 seconds!"
+        style: tall title
+        font_size: 100
+        z: 2
+        y: 90%
+      - type: text
+        text: "All shots worth 200,000 for 20 seconds!"
+        style: tall title
+        font_size: 100
+        color: black
+        z: 2
+        x: middle-1
+        y: 89%
+      - type: text
+        text: "Shoot Portal target to add 50,000 to bonus!"
+        style: tall title
+        font_size: 100
+        z: 2
+        y: 70%
+      - type: text
+        text: "Shoot Portal target to add 50,000 to bonus!"
+        style: tall title
+        font_size: 100
+        color: black
+        z: 2
+        x: middle-1
+        y: 69%
+      - type: video
+        video: soosloop
+        anchor_y: middle
+        anchor_x: middle
+        end_behavior: loop
+  bring_thunder:
+    fixit_side:
+      widgets:
+      - type: video
+        video: fixing
+        anchor_y: middle
+        anchor_x: middle
+        expire: 17s
+  soos_ramp_award_hit:
+    fixit_side:
+      action: remove
+  thunderstruck:
+    thunder_slide:
+      action: remove
+  timer_timer_soos_down_complete:
+    extra_slide:
+      action: remove
+  end_soos_zodiac:
+    extra_slide:
+      action: remove
+  timer_timer_soos_bonus_down_complete:
+    extra_slide:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:
+  soos_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  soos_target:
+    - type: text
+      text: "Shoot the Mystery Shack ramp!"
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: "Shoot the Mystery Shack ramp!"
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  soos_bonus_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  handyman_bonus_score:
+    - type: text
+      text: (soos_bonus_score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      y: 330
+    - type: text
+      text: (soos_bonus_score)
+      number_grouping: True
+      color: black
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      x: middle-1
+      y: 329
+
+widget_player:
+  mode_soos_zodiac_started:
+    soos_target:
+      action: update
+  timer_timer_soos_down_tick:
+    soos_time:
+      action: update
+    soos_target:
+      action: update
+  timer_timer_soos_bonus_down_tick:
+    soos_bonus_time:
+      action: update
+  mega_point_run:
+    soos_time:
+      action: remove
+    handyman_bonus_score:
+      action: update
+  go_bumper:
+    bill_bumper:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_soos_down:
+    debug: True
+    start_value: 16
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: bring_thunder
+        action: start
+      - event: mega_point_run
+        action: stop
+  timer_soos_bonus_down:
+    debug: True
+    start_value: 20
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: mega_point_run
+        action: start
+
+#        ::::::::   ::::::::  :::    ::: ::::    ::: ::::::::::: :::::::::: :::::::::   :::::::: 
+#      :+:    :+: :+:    :+: :+:    :+: :+:+:   :+:     :+:     :+:        :+:    :+: :+:    :+: 
+#     +:+        +:+    +:+ +:+    +:+ :+:+:+  +:+     +:+     +:+        +:+    +:+ +:+         
+#    +#+        +#+    +:+ +#+    +:+ +#+ +:+ +#+     +#+     +#++:++#   +#++:++#:  +#++:++#++   
+#   +#+        +#+    +#+ +#+    +#+ +#+  +#+#+#     +#+     +#+        +#+    +#+        +#+    
+#  #+#    #+# #+#    #+# #+#    #+# #+#   #+#+#     #+#     #+#        #+#    #+# #+#    #+#     
+#  ########   ########   ########  ###    ####     ###     ########## ###    ###  ########  
+
+counters:
+  initialise_zodiac:
+    count_events: mode_soos_zodiac_started
+    events_when_complete: initialise_zodiac
+    count_complete_value: 1
+    persist_state: True
+  portal_bonus:
+    count_events: shot_portal_unlit_hit, shot_portal_lit_hit
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########    
+
+variable_player:
+  soos_ramp_award_lit_hit: 
+    score: 100000
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mega_point_run:
+    music:
+      action: play
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  mega_point_run:
+    soos_pig:
+      action: play
+      loops: -1
+  go_bumper:
+    soos_pig:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  soos_ramp_award_lit_hit:
+    blessing:
+      action: play
+
+  callout_1:
+    soos_callouts:
+      action: play
+  callout_2:
+    soos_callouts:
+      action: play
+  callout_3:
+    soos_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  soos_ramp_award:
+    switch: s_right_ramp_exit
+    show_tokens:
+      led: l_right_ramp_arrow
+    profile: soos_shack_profile
+    enable_events: bring_thunder
+
+shot_profiles:
+  soos_shack_profile:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  flash_shack_ramp_shot:
+    - time: 0
+      lights:
+        (led): green
+    - time: 1
+      lights:
+        (led): off
+
+show_player:
+  bring_thunder:
+    flash_shack_ramp_shot:
+      show_tokens:
+        led: l_right_ramp_arrow

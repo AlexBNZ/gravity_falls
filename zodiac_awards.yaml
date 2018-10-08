@@ -1,0 +1,330 @@
+#config_version=5
+#zodiac_awards config file
+
+mode:
+  start_events: ball_starting
+  priority: 100
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  timer_timer_soos_z_complete: go_soos_z
+  timer_timer_wendy_z_complete: go_wendy_z
+  timer_timer_stan_z_complete: go_stan_z
+  timer_timer_dipper_z_complete: go_dipper_z
+  timer_timer_gideon_z_complete: go_gideon_z
+  timer_timer_ford_z_complete: go_ford_z
+  timer_timer_pacifica_z_complete: go_pacifica_z
+  timer_timer_mabel_z_complete: go_mabel_z
+  timer_timer_robbie_z_complete: go_robbie_z
+  timer_timer_mcgucket_z_complete: go_mcgucket_z
+  timer_timer_bill_z_complete: weirdmageddon
+
+#            :::      ::::::::  :::    ::: ::::::::::: :::::::::: :::     ::: ::::::::::   :::   :::   :::::::::: ::::    ::: ::::::::::: :::::::: 
+#         :+: :+:   :+:    :+: :+:    :+:     :+:     :+:        :+:     :+: :+:         :+:+: :+:+:  :+:        :+:+:   :+:     :+:    :+:    :+: 
+#       +:+   +:+  +:+        +:+    +:+     +:+     +:+        +:+     +:+ +:+        +:+ +:+:+ +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#     +#++:++#++: +#+        +#++:++#++     +#+     +#++:++#   +#+     +:+ +#++:++#   +#+  +:+  +#+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#    +#+     +#+ +#+        +#+    +#+     +#+     +#+         +#+   +#+  +#+        +#+       +#+ +#+        +#+  +#+#+#     +#+           +#+    
+#   #+#     #+# #+#    #+# #+#    #+#     #+#     #+#          #+#+#+#   #+#        #+#       #+# #+#        #+#   #+#+#     #+#    #+#    #+#     
+#  ###     ###  ########  ###    ### ########### ##########     ###     ########## ###       ### ########## ###    ####     ###     ########  
+
+achievement_groups:
+  zodiac_awards:
+    achievements:
+      # - dipper_run
+      - ford_run
+      - gideon_run
+      # - mabel_run
+      - mcgucket_run
+      - pacifica_run
+      - robbie_run
+      - soos_run
+      - stan_run
+      - wendy_run
+    auto_select: True
+    events_when_all_completed: select_bill_run
+    enable_while_no_achievement_started: True
+    select_random_achievement_events: sw_sling, sw_jet
+    allow_selection_change_while_disabled: True
+    disable_while_achievement_started: True
+    start_selected_events: shot_ZODIAC_zodiac_profile_lit_hit
+
+achievements:
+  soos_run:
+    show_tokens:
+      led: l_soos_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_soos
+    complete_events: award_hit_soos
+    reset_events: reset_zodiac
+
+  wendy_run:
+    show_tokens:
+      led: l_wendy_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_wendy
+    complete_events: award_hit_wendy
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  stan_run:
+    show_tokens:
+      led: l_stan_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_stan
+    complete_events: award_hit_stan
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  dipper_run:
+    show_tokens:
+      led: l_dipper_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_dipper
+    complete_events: award_hit_dipper
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  gideon_run:
+    show_tokens:
+      led: l_gideon_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_gideon
+    complete_events: award_hit_gideon
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  ford_run:
+    show_tokens:
+      led: l_ford_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_ford
+    complete_events: award_hit_ford
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  pacifica_run:
+    show_tokens:
+      led: l_pacifica_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_pacifica
+    complete_events: award_hit_pacifica
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  mabel_run:
+    show_tokens:
+      led: l_mabel_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_mabel
+    complete_events: award_hit_mabel
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  robbie_run:
+    show_tokens:
+      led: l_robbie_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_robbie
+    complete_events: award_hit_robbie
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  mcgucket_run:
+    show_tokens:
+      led: l_mcgucket_award
+    show_when_selected: flash
+    show_when_completed: on
+    events_when_started: award_hit_mcgucket
+    complete_events: award_hit_mcgucket
+    enable_events: initialise_zodiac, reset_zodiac
+    reset_events: reset_zodiac
+
+  bill_run:
+    show_tokens:
+      led: l_bill_award
+    show_when_enabled: flash
+    show_when_completed: on
+    enable_events: select_bill_run
+    start_events: shot_ZODIAC_zodiac_profile_lit_hit
+    events_when_started: award_hit_bill
+    complete_events: award_hit_bill
+    events_when_completed: reset_zodiac
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########  
+
+timers:
+  timer_soos_z:
+    debug: True
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_soos
+        action: start
+  timer_wendy_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_wendy
+        action: start
+  timer_stan_z:
+    debug: True
+    start_value: 3
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_stan
+        action: start
+  timer_dipper_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_dipper
+        action: start
+  timer_gideon_z:
+    debug: True
+    start_value: 6
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_gideon
+        action: start
+  timer_ford_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_ford
+        action: start
+  timer_pacifica_z:
+    debug: True
+    start_value: 2
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_pacifica
+        action: start
+  timer_mabel_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_mabel
+        action: start
+  timer_robbie_z:
+    debug: True
+    start_value: 3
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_robbie
+        action: start
+  timer_mcgucket_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_mcgucket
+        action: start
+  timer_bill_z:
+    debug: True
+    start_value: 4
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: award_hit_bill
+        action: start 
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+sound_player:
+  award_hit_soos:
+    manalive:
+      action: play
+  award_hit_wendy:
+    pickone:
+      action: play
+  award_hit_stan:
+    mrmystery:
+      action: play
+  award_hit_dipper:
+    weirdtown:
+      action: play
+  award_hit_gideon:
+    lilolme:
+      action: play
+  award_hit_ford:
+    beepboop:
+      action: play
+  award_hit_pacifica:
+    lyingcheat:
+      action: play
+  award_hit_mabel:
+    mytime:
+      action: play
+  award_hit_robbie:
+    watertower:
+      action: play
+  award_hit_mcgucket:
+    rnightmare:
+      action: play
+  award_hit_bill:
+    goodback:
+      action: play

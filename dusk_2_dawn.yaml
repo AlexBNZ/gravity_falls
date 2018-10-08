@@ -1,0 +1,638 @@
+#config_version=5
+#dusk_2_dawn config file
+
+mode:
+  start_events: start_dusk_2_dawn
+  stop_events: stop_dusk_2_dawn, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########   
+
+event_player:
+  mode_dusk_2_dawn_started: score_board
+  target_list_static: score_board
+  flipper_cancel: the90s
+
+  timer_timer_mart_hurry_up_complete: stop_dusk_2_dawn
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_dusk_2_dawn_started:
+    dusk_slide:
+      widgets:
+        - type: video
+          video: dead_dusk
+          anchor_y: middle
+          anchor_x: middle
+  the90s:
+    dusk_slide:
+      action: remove
+  target_list_static:
+    shots_slide:
+      widgets:
+        - type: image
+          image: pickafriend
+          anchor_y: middle
+          anchor_x: middle
+  minimart_shots_hit:
+    shots_slide:
+      action: remove
+  timer_timer_mart_hurry_up_complete:
+    shots_slide:
+      action: remove
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########  
+
+widget_player:
+  mode_dusk_2_dawn_started:
+    thingy_name2:
+      action: update
+  target_list_static:
+    ghost_rules:
+      action: update
+    lee_target:
+      action: update
+    nate_target:
+      action: update
+    robbie_target:
+      action: update
+    tambry_target:
+      action: update
+    thompson_target:
+      action: update
+    wendy_target:
+      action: update
+  timer_timer_mart_hurry_up_tick:
+    hurry_up_score:
+      action: update
+  lee_portal_award_lit_hit:
+    lee_target:
+      action: remove
+  nate_tent_award_lit_hit:
+    nate_target:
+      action: remove
+  robbie_ramp_award_lit_hit:
+    robbie_target:
+      action: remove
+  tambry_zodiac_award_lit_hit:
+    tambry_target:
+      action: remove
+  thompson_loop_award_lit_hit:
+    thompson_target:
+      action: remove
+  wendy_ramp_award_lit_hit:
+    wendy_target:
+      action: remove
+
+widgets:
+  thingy_name2:
+    - type: text
+      text: THE INCONVENIENCING
+      style: falls font
+      z: 2
+      y: 50%
+      expire: 4s
+    - type: text
+      text: THE INCONVENIENCING
+      style: falls font
+      color: black
+      z: 2
+      x: middle-1
+      y: 49%
+      expire: 4s
+  ghost_rules:
+    - type: text
+      text: Make all shots to claim hurry up!
+      style: tall title
+      font_size: 100
+      z: 2
+      x: middle
+      y: 90%
+    - type: text
+      text: Make all shots to claim hurry up!
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  hurry_up_score:
+    - type: text
+      text: (player|inconveniencing_bonus_score)
+      font_size: 100
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      y: 35%
+    - type: text
+      text: (player|inconveniencing_bonus_score)
+      font_size: 100
+      color: black
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      x: middle-1
+      y: 34%
+  lee_target:
+    - type: text
+      text: LEE
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 725
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: LEE
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 724
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "PORTAL\nTARGET"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 725
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "PORTAL\nTARGET"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 724
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+  nate_target:
+    - type: text
+      text: NATE
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 900
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: NATE
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 899
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "TENT\nSAUCER"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 900
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "TENT\nSAUCER"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 899
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+  robbie_target:
+    - type: text
+      text: ROBBIE
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 375
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: ROBBIE
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 374
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "WATERTOWER\nRAMP"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 375
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "WATERTOWER\nRAMP"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 374
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+  tambry_target:
+    - type: text
+      text: TAMBRY
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 550
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: TAMBRY
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 549
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "ZODIAC\nSAUCER"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 550
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "ZODIAC\nSAUCER"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 549
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+  thompson_target:
+    - type: text
+      text: THOMPSON
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 175
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: THOMPSON
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 174
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "COVE\nLOOP"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 175
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "COVE\nLOOP"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 174
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+  wendy_target:
+    - type: text
+      text: WENDY
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 1450
+      y: 80%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: WENDY
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 1449
+      y: 79%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "MYSTERY SHACK\nRAMP"
+      style: tall title
+      font_size: 50
+      z: 2
+      x: 1450
+      y: 70%
+      animations:
+        timer_wibble_wait_complete: fading
+    - type: text
+      text: "MYSTERY SHACK\nRAMP"
+      style: tall title
+      font_size: 50
+      color: black
+      z: 2
+      x: 1449
+      y: 69%
+      animations:
+        timer_wibble_wait_complete: fading
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  wibble_wait:
+    debug: True
+    start_value: 1
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: target_list_static
+        action: start
+      - event: timer_wibble_wait_complete
+        action: stop
+  timer_mart_hurry_up:
+    debug: True
+    start_value: 350
+    end_value: -1
+    direction: down
+    tick_interval: 0.1s
+    start_running: no
+    control_events:
+      - event: target_list_static
+        action: start
+      - event: minimart_shots_hit
+        action: stop
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########     
+
+variable_player:
+  mode_dusk_2_dawn_started:
+    inconveniencing_bonus_score:
+      action: set
+      int: 15000000
+  timer_timer_mart_hurry_up_tick{current_player.inconveniencing_bonus_score > 0}:
+    inconveniencing_bonus_score: -31467
+  minimart_shots_hit:
+    score: current_player.inconveniencing_bonus_score
+  timer_timer_mart_hurry_up_complete:
+    score: current_player.inconveniencing_bonus_score
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  mode_dusk_2_dawn_started:
+    music:
+      action: stop_all_sounds
+  target_list_static:
+    music:
+      action: play
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  target_list_static:
+    first_capture:
+      action: play
+      loops: -1
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  lee_portal_award_lit_hit:
+    true_rumours:
+      action: play
+  nate_tent_award_lit_hit:
+    throw_kid:
+      action: play
+  robbie_ramp_award_lit_hit:
+    captain_buzzkill:
+      action: play
+  tambry_zodiac_award_lit_hit:
+    status_update:
+      action: play
+  thompson_loop_award_lit_hit:
+    whatever_itis:
+      action: play
+  wendy_ramp_award_lit_hit:
+    buy_ticket:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+accruals:
+  minimart_shots:
+    events:
+      - lee_portal_award_lit_hit
+      - nate_tent_award_lit_hit
+      - robbie_ramp_award_lit_hit
+      - tambry_zodiac_award_lit_hit
+      - thompson_loop_award_lit_hit
+      - wendy_ramp_award_lit_hit
+    events_when_complete: stop_dusk_2_dawn
+    enable_events: target_list_static
+    reset_on_complete: False
+
+shots:
+  lee_portal_award:
+    switch: s_standup_11
+    show_tokens:
+      led: l_portal
+    profile: flash_award_shot
+    enable_events: target_list_static
+  nate_tent_award:
+    switch: s_tent_eject
+    show_tokens:
+      led: l_tent
+    profile: flash_award_shot
+    enable_events: target_list_static
+  robbie_ramp_award:
+    switch: s_left_ramp_exit
+    show_tokens:
+      led: l_left_ramp_arrow
+    profile: flash_award_shot
+    enable_events: target_list_static
+  tambry_zodiac_award:
+    switch: s_zodiac_eject
+    show_tokens:
+      led: l_zodiac
+    profile: flash_award_shot
+    enable_events: target_list_static
+  thompson_loop_award:
+    switch: s_cove_rollover
+    show_tokens:
+      led: l_cove
+    profile: flash_award_shot
+    enable_events: target_list_static
+  wendy_ramp_award:
+    switch: s_right_ramp_exit
+    show_tokens:
+      led: l_right_ramp_arrow
+    profile: flash_award_shot
+    enable_events: target_list_static
+
+shot_profiles:
+  flash_award_shot:
+    states:
+      - name: lit
+        show: on
+      - name: unlit
+        show: off
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  flash_lee_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+  flash_nate_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+  flash_robbie_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+  flash_tambry_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+  flash_thompson_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+  flash_wendy_shot:
+    - time: 0
+      lights:
+        (led): purple
+    - time: 1
+      lights:
+        (led): off
+
+show_player:
+  target_list_static:
+    flash_lee_shot:
+      show_tokens:
+        led: l_portal
+    flash_nate_shot:
+      show_tokens:
+        led: l_tent
+    flash_robbie_shot:
+      show_tokens:
+        led: l_left_ramp_arrow
+    flash_tambry_shot:
+      show_tokens:
+        led: l_zodiac
+    flash_thompson_shot:
+      show_tokens:
+        led: l_cove
+    flash_wendy_shot:
+      show_tokens:
+        led: l_right_ramp_arrow

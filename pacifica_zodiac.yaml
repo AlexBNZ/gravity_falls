@@ -1,0 +1,413 @@
+#config_version=5
+#pacifica_zodiac config file
+
+mode:
+  start_events: go_pacifica_z
+  stop_events: end_pacifica_zodiac, mode_bonus_started
+  priority: 200
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########       
+
+event_player:
+  flipper_cancel: llama
+  new_order: score_board, pac_timer
+  pac_timer:
+    timer_timer_pacifica_down_tick:
+      ticks_remaining: 20
+  cove_shot_award_lit_hit: jets_flash_go, score_board
+  northwest: score_board, north_timer
+  north_timer:
+    timer_timer_mansion_flash_down_tick:
+      ticks_remaining: 20
+
+  timer_timer_pacifica_down_tick{ticks==15}: callout_1
+  timer_timer_pacifica_down_tick{ticks==10}: callout_2
+  timer_timer_pacifica_down_tick{ticks==5}: callout_3
+
+  timer_timer_pacifica_down_complete: go_bumper
+  timer_timer_mansion_flash_down_complete: go_bumper
+  no_more_bill: end_pacifica_zodiac
+  end_pacifica_zodiac: modes_up_1
+
+  mode_pacifica_zodiac_started: score_board
+
+#        ::::::::  :::        ::::::::::: :::::::::  :::::::::: :::::::: 
+#      :+:    :+: :+:            :+:     :+:    :+: :+:       :+:    :+: 
+#     +:+        +:+            +:+     +:+    +:+ +:+       +:+         
+#    +#++:++#++ +#+            +#+     +#+    +:+ +#++:++#  +#++:++#++   
+#          +#+ +#+            +#+     +#+    +#+ +#+              +#+    
+#  #+#    #+# #+#            #+#     #+#    #+# #+#       #+#    #+#     
+#  ########  ########## ########### #########  ########## ########  
+
+slide_player:
+  mode_pacifica_zodiac_started:
+    crown_slide:
+      widgets:
+      - type: video
+        video: party_crown
+        anchor_y: middle
+        anchor_x: middle
+        expire: 5s
+      - type: text
+        text: NORTHWEST MANSION NOIR
+        style: falls font
+        z: 2
+        y: 50%
+        expire: 4s
+      - type: text
+        text: NORTHWEST MANSION NOIR
+        style: falls font
+        color: black
+        z: 2
+        x: middle-1
+        y: 49%
+        expire: 4s
+  new_order:
+    target_slide:
+      - type: video
+        video: pacificaloop
+        anchor_y: middle
+        anchor_x: middle
+        end_behavior: loop
+  llama:
+    crown_slide:
+      action: remove
+  end_pacifica_zodiac:
+    target_slide:
+      action: remove
+    tcove_slide:
+      action: remove
+  cove_shot_award_lit_hit:
+    tcove_slide:
+      - type: video
+        video: t_cove
+        anchor_y: middle
+        anchor_x: middle
+        expire: 4s
+  northwest:
+    treasure_secret:
+      - type: video
+        video: northwest_cove
+        anchor_y: middle
+        anchor_x: middle
+        end_behavior: loop
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widgets:  
+  guide_widget:
+    - type: text
+      text: Shoot for Trembley's Cove!
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: Shoot for Trembley's Cove!
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  pacifica_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  mansion_guide:
+    - type: text
+      text: Bumpers worth 10,000 unlit, 30,000 lit!
+      style: tall title
+      font_size: 100
+      z: 2
+      y: 90%
+    - type: text
+      text: Bumpers worth 10,000 unlit, 30,000 lit!
+      style: tall title
+      font_size: 100
+      color: black
+      z: 2
+      x: middle-1
+      y: 89%
+  mansion_time:
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      z: 2
+      y: 90%
+      x: 90%
+    - type: text
+      text: (ticks_remaining)
+      font_size: 200
+      color: black
+      z: 2
+      y: 89%
+      x: 89%
+  noir_bonus_score:
+    - type: text
+      text: (pacifica_bonus_score)
+      font_size: 100
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      y: 35%
+    - type: text
+      text: (pacifica_bonus_score)
+      font_size: 100
+      color: black
+      number_grouping: True
+      min_digits: 2
+      bold: True
+      z: 2
+      x: middle-1
+      y: 34%
+
+widget_player:
+  mode_pacifica_zodiac_started:
+    guide_widget:
+      action: update
+  new_order:
+    guide_widget:
+      action: update
+
+  cove_shot_award_lit_hit:
+    mansion_guide:
+      action: update
+  northwest:
+    noir_bonus_score:
+      action: update
+    mansion_guide:
+      action: update
+    mansion_time:
+      action: update
+
+  go_bumper:
+    bill_bumper:
+      action: update
+
+  timer_timer_pacifica_down_tick:
+    pacifica_time:
+      action: update
+  timer_timer_mansion_flash_down_tick:
+    mansion_time:
+      action: update
+
+#    ::::::::::: :::::::::::   :::   :::   :::::::::: :::::::::   :::::::: 
+#       :+:         :+:      :+:+: :+:+:  :+:        :+:    :+: :+:    :+: 
+#      +:+         +:+     +:+ +:+:+ +:+ +:+        +:+    +:+ +:+         
+#     +#+         +#+     +#+  +:+  +#+ +#++:++#   +#++:++#:  +#++:++#++   
+#    +#+         +#+     +#+       +#+ +#+        +#+    +#+        +#+    
+#   #+#         #+#     #+#       #+# #+#        #+#    #+# #+#    #+#     
+#  ###     ########### ###       ### ########## ###    ###  ########    
+
+timers:
+  timer_pacifica_down:
+    debug: True
+    start_value: 20
+    end_value: -1
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: new_order
+        action: start
+      - event: cove_shot_award_lit_hit
+        action: stop
+  timer_mansion_flash_down:
+    debug: True
+    start_value: 20
+    end_value: 0
+    direction: down
+    tick_interval: 1s
+    start_running: no
+    control_events:
+      - event: northwest
+        action: start
+
+#     :::     :::     :::     :::::::::  :::::::::::     :::     :::::::::  :::        :::::::::: :::::::: 
+#    :+:     :+:   :+: :+:   :+:    :+:     :+:       :+: :+:   :+:    :+: :+:        :+:       :+:    :+: 
+#   +:+     +:+  +:+   +:+  +:+    +:+     +:+      +:+   +:+  +:+    +:+ +:+        +:+       +:+         
+#  +#+     +:+ +#++:++#++: +#++:++#:      +#+     +#++:++#++: +#++:++#+  +#+        +#++:++#  +#++:++#++   
+#  +#+   +#+  +#+     +#+ +#+    +#+     +#+     +#+     +#+ +#+    +#+ +#+        +#+              +#+    
+#  #+#+#+#   #+#     #+# #+#    #+#     #+#     #+#     #+# #+#    #+# #+#        #+#       #+#    #+#     
+#   ###     ###     ### ###    ### ########### ###     ### #########  ########## ########## ########   
+
+variable_player:
+  cove_shot_award_lit_hit: 
+    score: 1000000
+  shot_left_jet_flash_unlit_hit:
+    pacifica_bonus_score: 10000
+  shot_left_jet_flash_lit_hit:
+    pacifica_bonus_score: 30000
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+track_player:
+  new_order:
+    music:
+      action: play
+  cove_shot_award_lit_hit:
+    music:
+      action: stop_all_sounds
+
+sound_player:
+
+# .##...##..##..##...####...######...####..
+# .###.###..##..##..##........##....##..##.
+# .##.#.##..##..##...####.....##....##.....
+# .##...##..##..##......##....##....##..##.
+# .##...##...####....####...######...####..
+
+  new_order:
+    pac_intro:
+      action: play
+      loops: -1
+  northwest:
+    northwest_song:
+      action: play
+      loops: -1
+  go_bumper:
+    pac_intro:
+      action: stop
+    northwest_song:
+      action: stop
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  callout_1:
+    pacifica_callouts:
+      action: play
+  callout_2:
+    pacifica_callouts:
+      action: play
+  callout_3:
+    pacifica_callouts:
+      action: play
+
+#        ::::::::   :::    :::  :::::::::  :::::::::::   ::::::::
+#      :+:    :+:  :+:    :+:  :+:    :+:     :+:      :+:    :+:
+#     +:+         +:+    +:+  +:+    +:+     +:+      +:+
+#    +#++:++#++  +#++:++#++  +#+    +:+     +#+      +#++:++#++
+#          +#+  +#+    +#+  +#+    +#+     +#+             +#+
+#  #+#    #+#  #+#    #+#  #+#    #+#     #+#      #+#    #+#
+#  ########   ###    ###   ########      ###       ########
+
+shots:
+  cove_shot_award:
+    switch: s_cove_rollover
+    show_tokens:
+      led: l_cove
+    profile: t_cove_profile
+  shot_left_jet_flash:
+    switch: s_left_jet
+    show_tokens:
+        led: l_left_jet
+    profile: left_jet_flash_profile
+  shot_right_jet_flash:
+    switch: s_right_jet
+    show_tokens:
+        led: l_right_jet
+    profile: jet_right_flash_profile
+  shot_bottom_jet_flash:
+    switch: s_bottom_jet
+    show_tokens:
+        led: l_bottom_jet
+    profile: jet_bottom_flash_profile
+
+shot_profiles:
+  t_cove_profile:
+     states:
+        - name: lit
+          show: on
+        - name: unlit
+          show: off
+  left_jet_flash_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+  jet_right_flash_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+  jet_bottom_flash_profile:
+     states:
+        - name: unlit
+          show: off
+        - name: lit
+          show: on
+     loop: True
+
+#        ::::::::  :::    :::  ::::::::  :::       :::  ::::::::
+#      :+:    :+: :+:    :+: :+:    :+: :+:       :+: :+:    :+:
+#     +:+        +:+    +:+ +:+    +:+ +:+       +:+ +:+
+#    +#++:++#++ +#++:++#++ +#+    +:+ +#+  +:+  +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+    +#+ +#+ +#+#+ +#+        +#+
+#  #+#    #+# #+#    #+# #+#    #+#  #+#+# #+#+#  #+#    #+#
+#  ########  ###    ###  ########    ###   ###    ########
+
+shows:
+  flash_cove_shot:
+    - time: 0
+      lights:
+        (led): green
+    - time: 1
+      lights:
+        (led): off
+  flash_jet_shots:
+    - time: 0
+      lights:
+         (led): purple
+    - time: 0.5
+      lights:
+         (led): off
+
+show_player:
+  mode_pacifica_zodiac_started:
+    flash_cove_shot:
+      show_tokens:
+        led: l_cove
+  jets_flash_go:
+    flash_jet_shots:
+      loops: 0
+      speed: 1.5
+      show_tokens:
+        led: l_left_jet, l_right_jet, l_bottom_jet

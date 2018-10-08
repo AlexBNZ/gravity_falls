@@ -1,0 +1,610 @@
+#config_version=5
+#base mode display config file
+
+mode:
+  start_events: ball_starting
+  priority: 100
+
+#       :::::::::: :::     ::: :::::::::: ::::    ::: ::::::::::: :::::::: 
+#      :+:        :+:     :+: :+:        :+:+:   :+:     :+:    :+:    :+: 
+#     +:+        +:+     +:+ +:+        :+:+:+  +:+     +:+    +:+         
+#    +#++:++#   +#+     +:+ +#++:++#   +#+ +:+ +#+     +#+    +#++:++#++   
+#   +#+         +#+   +#+  +#+        +#+  +#+#+#     +#+           +#+    
+#  #+#          #+#+#+#   #+#        #+#   #+#+#     #+#    #+#    #+#     
+# ##########     ###     ########## ###    ####     ###     ########  
+
+event_player:
+  player_added: go_cat
+  multiplayer_game: no_single_player, player_1_multiplayer
+  score_board{game.num_players==1}: single_player_score
+  score_board{game.num_players>1 and current_player.number==1}: player_1_multiplayer
+  score_board{current_player.number==2}: multi_player_p2_score
+  score_board{current_player.number==3}: multi_player_p3_score
+  score_board{current_player.number==4}: multi_player_p4_score
+
+  player_1_multiplayer: multi_player_p1_score
+  player_2_ball_started: multi_player_p2_score
+  player_3_ball_started: multi_player_p3_score
+  player_4_ball_started: multi_player_p4_score
+
+  multi_score_board: no_single_player
+
+#      :::       ::: ::::::::::: :::::::::   ::::::::  :::::::::: ::::::::::: :::::::: 
+#     :+:       :+:     :+:     :+:    :+: :+:    :+: :+:            :+:    :+:    :+: 
+#    +:+       +:+     +:+     +:+    +:+ +:+        +:+            +:+    +:+         
+#   +#+  +:+  +#+     +#+     +#+    +:+ :#:        +#++:++#       +#+    +#++:++#++   
+#  +#+ +#+#+ +#+     +#+     +#+    +#+ +#+   +#+# +#+            +#+           +#+    
+#  #+#+# #+#+#      #+#     #+#    #+# #+#    #+# #+#            #+#    #+#    #+#     
+#  ###   ###   ########### #########   ########  ##########     ###     ########   
+
+widget_player:
+  ball_save_main_saving_ball:
+    ball_saved:
+      action: update
+  player_added:
+    player_add_success:
+      action: update
+
+  single_player_score:
+    single_score_board:
+      action: update
+
+  no_single_player:
+    single_score_board:
+      action: remove
+
+  multi_player_p1_score:
+    multi_score_board:
+      action: update
+  multi_player_p2_score:
+    multi_score_board2:
+      action: update
+  multi_player_p3_score:
+    multi_score_board3:
+      action: update
+  multi_player_p4_score:
+    multi_score_board4:
+      action: update
+
+widgets:
+  ball_saved:
+      - type: text
+        text: BALL SAVED!
+        expire: 2s
+      - type: text
+        text: BALL SAVED!
+        expire: 2s
+        color: black
+        x: middle-1
+        y: middle-1
+  player_add_success:
+      - type: text
+        text: PLAYER (num) ADDED
+        font_size: 200
+        style: tall title
+        expire: 2s
+        z: 200
+      - type: text
+        text: PLAYER (num) ADDED
+        font_size: 200
+        style: tall title
+        color: black
+        expire: 2s
+        z: 200
+        x: middle-1
+        y: middle-1
+
+  multi_score_board:
+    - type: text
+      text: (player1|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      y: 180
+    - type: text
+      text: (player1|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      color: black
+      x: middle-1
+      y: 179
+    - type: text
+      text: PLAYER (number)
+      y: 30
+      x: 10
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: PLAYER (number)
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      color: black
+      y: 29
+      x: 9
+      z: 99
+    - type: text
+      text: BALL (ball)
+      y: 30
+      x: right-10
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      z: 98
+    - type: text
+      text: BALL (ball)
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      color: black
+      y: 29
+      x: right-11
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      x: right-90
+      y: bottom+80
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      color: black
+      x: right-91
+      y: bottom+79
+      z: 98
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 70
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 69
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 110
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 109
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 150
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 149
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99 
+
+  multi_score_board2:
+    - type: text
+      text: (player2|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      y: 180
+    - type: text
+      text: (player2|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      color: black
+      x: middle-1
+      y: 179
+    - type: text
+      text: PLAYER (number)
+      y: 30
+      x: 10
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: PLAYER (number)
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      color: black
+      y: 29
+      x: 9
+      z: 99
+    - type: text
+      text: BALL (ball)
+      y: 30
+      x: right-10
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      z: 98
+    - type: text
+      text: BALL (ball)
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      color: black
+      y: 29
+      x: right-11
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      x: right-90
+      y: bottom+80
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      color: black
+      x: right-91
+      y: bottom+79
+      z: 98
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 70
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 69
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 110
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 109
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 150
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 149
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99  
+
+  multi_score_board3:
+    - type: text
+      text: (player3|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      y: 180
+    - type: text
+      text: (player3|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      color: black
+      x: middle-1
+      y: 179
+    - type: text
+      text: PLAYER (number)
+      y: 30
+      x: 10
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: PLAYER (number)
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      color: black
+      y: 29
+      x: 9
+      z: 99
+    - type: text
+      text: BALL (ball)
+      y: 30
+      x: right-10
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      z: 98
+    - type: text
+      text: BALL (ball)
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      color: black
+      y: 29
+      x: right-11
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      x: right-90
+      y: bottom+80
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      color: black
+      x: right-91
+      y: bottom+79
+      z: 98
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 70
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player4|number) (player4|score)
+      y: 69
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 110
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 109
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 150
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 149
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99 
+
+  multi_score_board4:
+    - type: text
+      text: (player4|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      z: 100
+      y: 180
+    - type: text
+      text: (player4|score)
+      number_grouping: True
+      bold: True
+      min_digits: 2
+      font_size: 150
+      color: black
+      x: middle-1
+      y: 179
+    - type: text
+      text: PLAYER (number)
+      y: 30
+      x: 10
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: PLAYER (number)
+      font_size: 50
+      anchor_x: left
+      anchor_y: bottom
+      color: black
+      y: 29
+      x: 9
+      z: 99
+    - type: text
+      text: BALL (ball)
+      y: 30
+      x: right-10
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      z: 98
+    - type: text
+      text: BALL (ball)
+      anchor_x: right
+      anchor_y: bottom
+      font_size: 50
+      color: black
+      y: 29
+      x: right-11
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      x: right-90
+      y: bottom+80
+      z: 98
+    - type: text
+      text: (machine|credits_string)
+      anchor_y: bottom
+      color: black
+      x: right-91
+      y: bottom+79
+      z: 98
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 70
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player1|number) (player1|score)
+      y: 69
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 110
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player2|number) (player2|score)
+      y: 109
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 150
+      x: 10
+      font_size: 50
+      color: red
+      anchor_x: left
+      anchor_y: bottom
+      z: 99
+    - type: text
+      text: (player3|number) (player3|score)
+      y: 149
+      x: 9
+      font_size: 50
+      color: black
+      anchor_x: left
+      anchor_y: bottom
+      z: 99 
+
+#        ::::::::   ::::::::  :::     ::: :::    ::: ::::::::::   ::::::::
+#      :+:    :+: :+:    :+: :+:     :+: :+:+   +:+ +:+     :+: :+:    :+:
+#     +:+        +:+    +:+ +:+     +:+ +:+:+  +:+ +:+     +:+ +:+
+#    +#++:++#++ +#+    +:+ +#+     +#+ +#+ +# +#+ +#+     +#+ +#++:++#++
+#          +#+ +#+    +#+ +#+     +#+ +#+  +#+#+ +#+     +#+        +#+
+#  #+#    #+# #+#    #+# #+#     #+# #+#   +#+# #+#     #+# #+#    #+#
+#  ########   ########    ########  ###    ### ##########   ########
+
+sound_player:
+
+# ..####....####...##......##.......####...##..##..######...####..
+# .##..##..##..##..##......##......##..##..##..##....##....##.....
+# .##......######..##......##......##..##..##..##....##.....####..
+# .##..##..##..##..##......##......##..##..##..##....##........##.
+# ..####...##..##..######..######...####....####.....##.....####..
+
+  go_cat:
+    caticature:
+      action: play
+
+
+
+# slide_player:
+#   ball_save_vuk_eject_saving_ball:
+#     phantom_ball_save:
+#       priority: 1000
+#       expire: 2s
+
+# slides:
+  # phantom_ball_save:
+  #   widgets:
+  #     type: text
+  #     text: SIT TIGHT!
+  #     style: dmd_big
