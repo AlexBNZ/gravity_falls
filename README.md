@@ -105,7 +105,7 @@ Spelling the word "BILL" lights up the Society shot. The player has 23 seconds t
 
 (THE REST OF MODE NOT YET STARTED)
 
-### Bunker
+### Into the Bunker
 
 Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, it opens up the bunker. The player has 18 seconds to shot for the bunker and if they manage the shot the ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
 
