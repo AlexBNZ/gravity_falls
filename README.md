@@ -91,7 +91,7 @@ Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (i
 
 * **The Inconveniencing**
 
-The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (MOSTLY WORKING! - Need to add ability to add time and restore points when shots are made.)
+The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
 
 * **The Land Before Swine**
 
