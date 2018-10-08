@@ -85,15 +85,33 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 
 ## Additional Gameplay
 
-* **BILL Cypher**
+### BILL Cypher
 
-* **Bunker**
+### Bunker
 
 Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, is opens up the bunker. The player has 18 seconds to shot for the lit bunker and if they manage the shot the ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
 
 (THE REST OF MODE NOT YET STARTED)
 
-* **TOTEM Pole**
+### TOTEM Pole
+
+Spelling the word "TOTEM" confers four awards in the following order:
+
+* **1: Points**
+
+Player awarded 100,000 points. (CURRENTLY WORKING!)
+
+* **2: Double Mania**
+
+Triggers a timed mode where for 30 seconds all shots and targets are worth double their normal value. (CURRENTLY WORKING!)
+
+* **3: Extra Ball**
+
+Light the Extra Ball saucer. (CURRENTLY WORKING!)
+
+* **4: Quick 2-ball Multiball**
+
+Starts a quick 2-ball multiball. (NOT YET STARTED)
 
 ### Time Baby Missions
 
