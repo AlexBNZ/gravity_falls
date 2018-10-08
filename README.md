@@ -41,7 +41,7 @@ Upon starting, the player has 16 seconds to shoot the lit Mystery Shack ramp to 
 
 * **Bag of Ice (Roadside Attraction)**
 
-(IN PROGRESS)
+When the mode starts the player has a 20 second timer. During this time all shots/targets are worth 250,000 points and the player starts with a 1 million point bonus. These points are all awarded as part of the End of Ball Bonus. (CURRENTLY WORKING!)
 
 * **Fez Symbol (The Stanchurian Candidate)**
 
