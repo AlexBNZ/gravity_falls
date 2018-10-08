@@ -33,7 +33,7 @@ At the start of gameplay, the player can pick from one of four characters to pla
 
 ### Zodiac Missions
 
-In a manner similar to the much-loved *The Addam's Family* pinball machine of yesteryear, the base challenge of the game is to work your way through all 10 different missions presented on the playfield zodiac (mission names are taken from episode titles). To activate a mission, the player must first spell "STAN" using those targets, which activates a 20 second window during which access to the Mystery Shack is granted. Shoot the Mystery Shack to light the Zodiac saucer. Once the lit Zodiac saucer is hit, the mode begins. The *Question Mark* mode is always lit first. (CURRENTLY WORKING!)
+In a manner similar to the much-loved *The Addam's Family* pinball machine of yesteryear, the base challenge of the game is to work your way through all 10 different missions presented on the playfield zodiac (mission names are taken from episode titles). To activate a mission, the player must first spell "STAN" using those targets, which activates a 20 second window during which access to the lit Mystery Shack is granted. Shoot the Mystery Shack to light the Zodiac saucer. Once the lit Zodiac saucer is hit, the mode begins. The *Question Mark* mode is always lit first. (CURRENTLY WORKING!)
 
 * **Question Mark (Soos and the Real Girl)**
 
@@ -45,7 +45,7 @@ Upon starting, the player has 16 seconds to shoot the lit Mystery Shack ramp to 
 
 * **Fez Symbol (The Stanchurian Candidate)**
 
-When the mode begins a hurry up starts. Scoring starts at 15 million and tumbles downwards over 20 seconds. To inflate Stan's ego and score the hurry up points, the player must hit the Portal target. The mode ends when the timer runs out (confering whatever points remain at that time), or when the player hits the Portal target. (CURRENTLY WORKING!)
+When the mode begins a hurry up starts. Scoring starts at 15 million and tumbles downwards over 20 seconds. To inflate Stan's ego and score the hurry up points, the player must hit the Portal target. The mode ends when the timer runs out (confering whatever points remain at that time), or when the player hits the Portal target. If the player hits the Portal target, in addition to the hurry up points, a two-ball multiball is started. (CURRENTLY WORKING!)
 
 * **Pine Tree (Double Dipper)**
 
@@ -53,7 +53,7 @@ When the mode begins a hurry up starts. Scoring starts at 15 million and tumbles
 
 * **5-pointed Star (Gideon Rises)**
 
-To begin with, the player has 20 seconds to shoot the lit Tent of Telepathy saucer. Making this shot enhances the three bumpers, lighting each one, so that a hit on a lit bumper scores 100,000 points. After four hits on an individual bumper, 3 million points are awarded and the bumper reverts to regular scoring. Once the timer runs out, or all three bumpers are each hit four times, the mode ends. (CURRENTLY WORKING!)
+To begin with, the player has 20 seconds to shoot the lit Tent of Telepathy saucer. Making this shot enhances the three bumpers, lighting each one, so that a hit on a lit bumper scores 100,000 points. After four hits on an individual bumper, 3 million points are awarded and the bumper is unlit and reverts to regular scoring. Once the timer runs out, or all three lit bumpers are each hit four times, the mode ends. (CURRENTLY WORKING!)
 
 * **6-fingered Hand (Not What He Seems)**
 
@@ -61,7 +61,7 @@ To begin with, the player has 20 seconds to shoot the lit Tent of Telepathy sauc
 
 * **Llama (Northwest Mansion Noir)**
 
-At the start of the mode, the player has 20 seconds to shoot the Trembley's Cove shot. After this, for 20 seconds the bumpers are worth 30,000 points when lit, and 10,000 when unlit. Once the timer runs out, the mode comes to an end. (CURRENTLY WORKING!)
+At the start of the mode, the player has 20 seconds to shoot the lit Trembley's Cove shot. After this, for 20 seconds the bumpers are worth 30,000 points when lit, and 10,000 when unlit. Once the timer runs out, the mode comes to an end. (CURRENTLY WORKING!)
 
 * **Shooting Star (The Hand that Rocked the Mabel)**
 
@@ -79,7 +79,7 @@ When the mode begins the player has 20 seconds to help McGucket repair his lapto
 
 The Weirdmageddon mode only becomes available once all 10 Zodiac missions have been attempted, lighting the character of Bill Cypher in the centre of the zodiac. Like the previous missions, the player must spell "STAN", shoot the Mystery Shack, and hit the lit Zodiac saucer to activate the mode. (CURRENTLY WORKING!)
 
-(THE REST NOT YET STARTED)
+(THE REST OF MODE NOT YET STARTED)
 
 ## Side Missions
 
@@ -90,5 +90,13 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (ie. 15x & 25x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
 
 * **Globnar**
+
+(NOT YET STARTED)
+
 * **The Inconveniencing**
+
+The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. (CURRENTLY WORKING!)
+
 * **The Land Before Swine**
+
+(NOT YET STARTED)
