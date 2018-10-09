@@ -4,7 +4,7 @@
 
 ## Requirements
 
-This project requires the Mission Pinball Framework 0.50 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires pinball machine (configuration coming soon).
+This project requires the Mission Pinball Framework 0.50 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires pinball machine (configuration coming soon). Please note "CURRENTLY WORKING!" simply means no obvious errors with the code - none of it has been tested against a real machine as yet.
 
 ## Main Gameplay
 
@@ -45,7 +45,7 @@ When the mode starts the player has a 20 second timer. During this time all shot
 
 * **Fez Symbol (The Stanchurian Candidate)**
 
-When the mode begins a hurry up starts. Scoring starts at 15 million and tumbles downwards over 20 seconds. To inflate Stan's ego and score the hurry up points, the player must hit the Portal target. The mode ends when the timer runs out (confering whatever points remain at that time), or when the player hits the Portal target. If the player hits the Portal target, in addition to the hurry up points, a two-ball multiball is started. (CURRENTLY WORKING!)
+When the mode begins a hurry up starts. Scoring starts at 15 million and tumbles downwards over 20 seconds. To inflate Stan's ego and score the hurry up points, the player must hit the Portal target. The mode ends when the timer runs out (confering whatever points remain at that time), or when the player hits the Portal target. If the player hits the Portal target, in addition to the hurry up points, a 2-ball multiball is started. The multiball ends when a ball drains. (CURRENTLY WORKING!)
 
 * **Pine Tree (Double Dipper)**
 
@@ -57,7 +57,7 @@ To begin with, the player has 20 seconds to shoot the lit Tent of Telepathy sauc
 
 * **6-fingered Hand (Not What He Seems)**
 
-(NOT YET STARTED)
+When the mode starts the player has 20 second to shoot for the lit Bunker. If they achieve this, this starts a 2-ball multiball. While the multiball is active a shot on the lit Bunker or lit Mystery Shack shots score 5 million points. Any additional shots to the lit Bunker or Mystery Shack result in a further 1 million points up to a total of 10 million points for a complete total of 15 million points (after that point the shots are no longer lit). The multiball ends when a ball drains. (CURRENTLY WORKING!)
 
 * **Llama (Northwest Mansion Noir)**
 
@@ -98,6 +98,8 @@ The player has 35 seconds to shot six different lit shots and collect the hurry 
 (NOT YET STARTED)
 
 ## Additional Gameplay
+
+### 618
 
 ### BILL Cypher
 
