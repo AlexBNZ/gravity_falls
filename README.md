@@ -4,7 +4,7 @@
 
 ## Requirements
 
-This project requires the Mission Pinball Framework 0.50 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires pinball machine (configuration coming soon). Please note "CURRENTLY WORKING!" simply means no obvious errors with the code - none of it has been tested against a real machine as yet.
+This project requires the Mission Pinball Framework 0.52 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires pinball machine (configuration coming soon). Please note "CURRENTLY WORKING!" simply means no obvious errors with the code - none of it has been tested against a real machine as yet.
 
 ## Main Gameplay
 
@@ -17,19 +17,28 @@ At the start of gameplay, the player can pick from one of four characters to pla
 
 * **Dipper Pines**
 
-(NOT YET STARTED)
+Every spelling of "BILL" adds 10,000 to the End of Ball Bonus. (NOT YET STARTED)
 
 * **Mabel Pines**
 
-(NOT YET STARTED)
+Every ramp shot adds 1,000 to the End of Ball Bonus. (NOT YET STARTED)
 
 * **Soos Ramirez**
 
-(NOT YET STARTED)
+Every spelling of "STAN" adds 10,000 to the End of Ball Bonus. (NOT YET STARTED)
 
 * **Wendy Corduroy**
 
-(NOT YET STARTED)
+Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus.
+
+### Scene Ladders
+
+The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available.
+
+* **Dipper Scene Ladder**
+* **Mabel Scene Ladder**
+* **Soos Scene Ladder**
+* **Wendy Scene Ladder**
 
 ### Zodiac Missions
 
