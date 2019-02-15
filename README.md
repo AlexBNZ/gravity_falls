@@ -37,9 +37,9 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Dipper Scene Ladder**
 
-Into the Bunker
-Dipper vs. Manliness
-Little Dipper
+*Into the BunkerXXXX
+*Dipper vs. Manliness
+*Little Dipper
 
 * **Mabel Scene Ladder**
 
@@ -91,7 +91,7 @@ When the mode starts the player has 20 second to shoot for the lit Bunker. If th
 
 At the start of the mode, the player has 20 seconds to shoot the lit Trembley's Cove shot. After this, for 20 seconds the bumpers are worth 30,000 points when lit, and 10,000 when unlit. Once the timer runs out, the mode comes to an end. (CURRENTLY WORKING!)
 
-* **Shooting Star (The Hand that Rocked the Mabel)**
+* **Shooting Star (The Hand that Rocks the Mabel)**
 
 (NOT YET STARTED)
 
@@ -121,7 +121,7 @@ Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (i
 
 The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
 
-* **The Land Before Swine**
+* **Land Before Swine**
 
 (NOT YET STARTED)
 
