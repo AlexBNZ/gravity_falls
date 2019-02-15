@@ -129,7 +129,7 @@ The player has 35 seconds to shot six different lit shots and collect the hurry 
 
 ### 618
 
-### BILL Cypher
+### It is Unseen
 
 Spelling the word "BILL" lights up the Society shot. The player has 23 seconds to shot the lit shot. (CURRENTLY WORKING!)
 
