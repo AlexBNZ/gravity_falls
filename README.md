@@ -37,31 +37,31 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Dipper Scene Ladder**
 
-*Into the BunkerXXXX
-*Dipper vs. Manliness
-*Little Dipper
+* Fight Fighters
+* Dipper vs. Manliness
+* Little Dipper
 
 * **Mabel Scene Ladder**
 
-The Last Mabelcorn
-Boyz Crazy
-Boss Mabel
+* The Last Mabelcorn
+* Boyz Crazy
+* Boss Mabel
 
 * **Soos Scene Ladder**
 
-Legend of the Gobblewonker
-Carpet Diem
-Summerween
+* Legend of the Gobblewonker
+* Carpet Diem
+* Summerween
 
 * **Wendy Scene Ladder**
 
-Tourist Trapped
-The Deep End
-Little Gift Shop of Horrors
+* Tourist Trapped
+* The Deep End
+* Little Gift Shop of Horrors
 
 ### Zodiac Missions
 
-In a manner similar to the much-loved *The Addam's Family* pinball machine of yesteryear, the base challenge of the game is to work your way through all 10 different missions presented on the playfield zodiac (mission names are taken from episode titles). To activate a mission, the player must first spell "STAN" using those targets, which activates a 20 second window during which access to the lit Mystery Shack is granted. Shoot the Mystery Shack to light the Zodiac saucer. Once the lit Zodiac saucer is hit, the mode begins. The *Question Mark* mode is always lit first. (CURRENTLY WORKING!)
+In a manner similar to the much-loved *The Addam's Family* pinball machine of yesteryear, the base challenge of the game is to work your way through all 10 different missions presented on the playfield zodiac. To activate a mission, the player must first spell "STAN" using those targets, which activates a 20 second window during which access to the lit Mystery Shack is granted. Shoot the Mystery Shack to light the Zodiac saucer. Once the lit Zodiac saucer is hit, the mode begins. The *Question Mark* mode is always lit first. (CURRENTLY WORKING!)
 
 * **Question Mark (Soos and the Real Girl)**
 
@@ -111,7 +111,7 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 
 ## Time Baby Missions
 
-Starting with reaching the 5x Baby bonus, and thereafter every 10x after that (ie. 15x & 25x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
+Starting with reaching the x Baby bonus, and thereafter every 10x after that (ie. 15x & 25x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
 
 * **Globnar**
 
@@ -149,18 +149,18 @@ Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell
 
 Spelling the word "TOTEM" confers four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
 
-* **1: Points**
+* **1: Irrational Treasure**
 
 Player awarded 100,000 points. (CURRENTLY WORKING!)
 
-* **2: Double Mania**
+* **2: Double Dipper**
 
 Triggers a timed mode where for 30 seconds all shots and targets are worth double their normal value. (CURRENTLY WORKING!)
 
-* **3: Extra Ball**
+* **3: Bottomless Pit!**
 
 Light the Extra Ball saucer. (MOSTLY WORKING! - Awarding of extra ball not yet working.)
 
-* **4: Quick 2-ball Multiball**
+* **4: Dreamscaperers**
 
 Starts a quick 2-ball multiball. (NOT YET STARTED)
