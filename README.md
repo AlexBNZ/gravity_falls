@@ -153,7 +153,7 @@ Spelling the word "TOTEM" confers four awards in the following order below. Once
 
 Player awarded 100,000 points. (CURRENTLY WORKING!)
 
-* **2: Double Dipper**
+* **2: A Tale of Two Stans**
 
 Triggers a timed mode where for 30 seconds all shots and targets are worth double their normal value. (CURRENTLY WORKING!)
 
