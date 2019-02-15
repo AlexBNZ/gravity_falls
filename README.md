@@ -29,16 +29,35 @@ Every spelling of "STAN" adds 10,000 to the End of Ball Bonus. (NOT YET STARTED)
 
 * **Wendy Corduroy**
 
-Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus.
+Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus. (NOT YET STARTED)
 
 ### Scene Ladders
 
 The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available.
 
 * **Dipper Scene Ladder**
+
+Into the Bunker
+Dipper vs. Manliness
+Little Dipper
+
 * **Mabel Scene Ladder**
+
+The Last Mabelcorn
+Boyz Crazy
+Boss Mabel
+
 * **Soos Scene Ladder**
+
+Legend of the Gobblewonker
+Carpet Diem
+Summerween
+
 * **Wendy Scene Ladder**
+
+Tourist Trapped
+The Deep End
+Little Gift Shop of Horrors
 
 ### Zodiac Missions
 
