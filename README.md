@@ -161,9 +161,15 @@ Once all three missions have been attempted, a new bonus mission begins.
 
 * **Dipper and Mabel vs. the Future**
 
+(NOT YET STARTED)
+
 ## Additional Gameplay
 
 ### 618
+
+(NOT YET STARTED)
+
+### The Golf War
 
 (NOT YET STARTED)
 
