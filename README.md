@@ -35,53 +35,59 @@ Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus. (NOT YET STARTED
 
 The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available.
 
-#### Dipper Scene Ladder####
+#### Dipper Scene Ladder ####
 
 * **Fight Fighters**
 
 (NOT YET STARTED)
 
-* *Dipper vs. Manliness*
+* **Dipper vs. Manliness**
 
 (NOT YET STARTED)
 
-* *Little Dipper*
+* **Little Dipper**
 
 (NOT YET STARTED)
 
-* **Mabel Scene Ladder**
+#### Mabel Scene Ladder ####
 
-* *The Last Mabelcorn*
-
-(NOT YET STARTED)
-
-* *Boyz Crazy*
+* **The Last Mabelcorn**
 
 (NOT YET STARTED)
 
-* *Boss Mabel*
+* **Boyz Crazy**
 
 (NOT YET STARTED)
 
-* **Soos Scene Ladder**
-
-* *Legend of the Gobblewonker*
-
-(NOT YET STARTED)
-* *Carpet Diem*
-
-(NOT YET STARTED)
-* *Summerween*
+* **Boss Mabel**
 
 (NOT YET STARTED)
 
-* **Wendy Scene Ladder**
+#### Soos Scene Ladder ####
 
-* *Tourist Trapped*
+* **Legend of the Gobblewonker**
 
-* *The Deep End*
+(NOT YET STARTED)
 
-* *Little Gift Shop of Horrors*
+* **Carpet Diem**
+
+(NOT YET STARTED)
+
+* **Summerween**
+
+(NOT YET STARTED)
+
+#### Wendy Scene Ladder ####
+
+* **Tourist Trapped**
+
+(STARTED)
+
+* **The Deep End**
+
+(STARTED)
+
+* **Little Gift Shop of Horrors**
 
 (NOT YET STARTED)
 
