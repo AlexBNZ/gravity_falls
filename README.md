@@ -37,7 +37,7 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Dipper Scene Ladder**
 
-* #*Fight Fighters*
+* ***Fight Fighters***
 
 (NOT YET STARTED)
 
