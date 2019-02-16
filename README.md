@@ -35,9 +35,9 @@ Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus. (NOT YET STARTED
 
 The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available.
 
-* **Dipper Scene Ladder**
+#### Dipper Scene Ladder####
 
-* ***Fight Fighters***
+* **Fight Fighters**
 
 (NOT YET STARTED)
 
