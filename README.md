@@ -37,15 +37,15 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Dipper Scene Ladder**
 
-* Fight Fighters
-* Dipper vs. Manliness
-* Little Dipper
+* *Fight Fighters*
+* *Dipper vs. Manliness*
+* *Little Dipper*
 
 * **Mabel Scene Ladder**
 
-* The Last Mabelcorn
-* Boyz Crazy
-* Boss Mabel
+** *The Last Mabelcorn*
+** *Boyz Crazy*
+** *Boss Mabel*
 
 * **Soos Scene Ladder**
 
