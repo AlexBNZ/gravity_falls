@@ -37,27 +37,53 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Dipper Scene Ladder**
 
-* *Fight Fighters*
+* #*Fight Fighters*
+
+(NOT YET STARTED)
+
 * *Dipper vs. Manliness*
+
+(NOT YET STARTED)
+
 * *Little Dipper*
+
+(NOT YET STARTED)
 
 * **Mabel Scene Ladder**
 
-** *The Last Mabelcorn*
-** *Boyz Crazy*
-** *Boss Mabel*
+* *The Last Mabelcorn*
+
+(NOT YET STARTED)
+
+* *Boyz Crazy*
+
+(NOT YET STARTED)
+
+* *Boss Mabel*
+
+(NOT YET STARTED)
 
 * **Soos Scene Ladder**
 
-* Legend of the Gobblewonker
-* Carpet Diem
-* Summerween
+* *Legend of the Gobblewonker*
+
+(NOT YET STARTED)
+* *Carpet Diem*
+
+(NOT YET STARTED)
+* *Summerween*
+
+(NOT YET STARTED)
 
 * **Wendy Scene Ladder**
 
-* Tourist Trapped
-* The Deep End
-* Little Gift Shop of Horrors
+* *Tourist Trapped*
+
+* *The Deep End*
+
+* *Little Gift Shop of Horrors*
+
+(NOT YET STARTED)
 
 ### Zodiac Missions
 
