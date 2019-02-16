@@ -157,9 +157,19 @@ The player has 35 seconds to shot six different lit shots and collect the hurry 
 
 (NOT YET STARTED)
 
+Once all three missions have been attempted, a new bonus mission begins.
+
+* **Dipper and Mabel vs. the Future**
+
 ## Additional Gameplay
 
 ### 618
+
+(NOT YET STARTED)
+
+### Headhunters
+
+(NOT YET STARTED)
 
 ### It is Unseen
 
@@ -174,6 +184,10 @@ Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell
 (THE REST OF MODE NOT YET STARTED)
 
 ### Nearly Almost Dead But Not Quite!
+
+(NOT YET STARTED)
+
+### The Time Traveler's Pig
 
 (NOT YET STARTED)
 
