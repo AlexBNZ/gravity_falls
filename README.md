@@ -4,7 +4,7 @@
 
 ## Requirements
 
-This project requires the Mission Pinball Framework 0.52 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires pinball machine (configuration coming soon). Please note "CURRENTLY WORKING!" simply means no obvious errors with the code - none of it has been tested against a real machine as yet.
+This project requires the Mission Pinball Framework 0.52 and can be simulated using the MPF virtual machine and MPF monitor interface. Playing in the real world requires a physical pinball machine (configuration coming soon). Please note "CURRENTLY WORKING!" simply means no obvious errors with the code - none of it has been tested against a real machine as yet.
 
 ## Main Gameplay
 
@@ -33,7 +33,7 @@ Every spelling of "TOTEM" adds 15,000 to the End of Ball Bonus. (NOT YET STARTED
 
 ### Scene Ladders
 
-The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available.
+The picking of a character (above) determines which of four scene ladders is available at the start of the game. The completion of a scene ladder then causes another randomly selected ladder to become available. (CURRENTLY WORKING!)
 
 #### Dipper Scene Ladder ####
 
@@ -97,7 +97,7 @@ In a manner similar to the much-loved *The Addam's Family* pinball machine of ye
 
 * **Question Mark (Soos and the Real Girl)**
 
-Upon starting, the player has 16 seconds to shoot the lit Mystery Shack ramp to help Soos talk to a girl. Achieving this starts the mode proper, where the player has 20 seconds to help Soos fix things, during which every shot and target is worth 200,000 points. On top of this, every shot on the Portal target increases the shot/target bonus by 50,000 points. These points are awarded as part of the End of Ball Bonus. The mode ends when the timer runs out. (CURRENTLY WORKING!)
+Upon starting, the player has 16 seconds to shoot the lit Mystery Shack ramp to help Soos talk to a girl. Achieving this starts the mode proper, where the player has 20 seconds to help Soos fix things, during which every shot and target is worth 200,000 points. On top of this, every shot on the Portal target increases a bonus by 50,000 points. These bonus points are awarded as part of the End of Ball Bonus. The mode ends when the timer runs out. (CURRENTLY WORKING!)
 
 * **Bag of Ice (Roadside Attraction)**
 
@@ -143,11 +143,11 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 
 ### Time Baby Missions
 
-Starting with reaching the 3x Baby bonus, and thereafter every 3x after that (ie. 6x & 9x), the player is assigned a ramdomly selected Time Baby mission from the three below. (MOSTLY WORKING! - Not sure what to do after all three modes are attempted.)
+Starting with reaching the 3x Baby bonus, and thereafter every 3x after that (ie. 6x & 9x), the player is assigned a ramdomly selected Time Baby mission from the three below. (CURRENTLY WORKING!)
 
 * **Globnar**
 
-(NOT YET STARTED)
+The player has to help Blendin pick up the anachronistic things left around Gravity Falls by hitting six shots. These are the Watertower ramp, Trembley's Cove shot, the Zodiac saucer, then Tent of Telepathy sacuer, the Mystery Shack ramp, and the Extra Ball saucer.
 
 * **The Inconveniencing**
 
@@ -159,6 +159,10 @@ The player has 35 seconds to shot six different lit shots and collect the hurry 
 
 Once all three missions have been attempted, a new bonus mission begins.
 
+* **Blendin's Game**
+
+(NOT YET STARTED)
+
 * **Dipper and Mabel vs. the Future**
 
 (NOT YET STARTED)
@@ -167,7 +171,7 @@ Once all three missions have been attempted, a new bonus mission begins.
 
 ### 618
 
-If the player reaches 618 hits on the jets, the 618 mode is activated.
+If the player reaches 618 hits on the jets, the 618 mode is activated. This is a 6-ball multiball on a 1 minute timer where the player can score 8 million points per ramp shot.
 
 ### The Golf War
 
@@ -185,7 +189,7 @@ Spelling the word "BILL" lights up the Society shot. The player has 23 seconds t
 
 ### Into the Bunker
 
-Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, it opens up the bunker. The player has 18 seconds to shot for the bunker and if they manage the shot the ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
+Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, it opens up the bunker. The player has 20 seconds to shot for the bunker and if they manage the shot then 1 ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
 
 (THE REST OF MODE NOT YET STARTED)
 
