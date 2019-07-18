@@ -141,6 +141,10 @@ The Weirdmageddon mode only becomes available once all 10 Zodiac missions have b
 
 (THE REST OF MODE NOT YET STARTED)
 
+* **Weirdmageddon 2: Esacape from Reality**
+
+* **Weirdmageddon 3: Take Back the Falls**
+
 ### Time Baby Missions
 
 Starting with reaching the 3x Baby bonus, and thereafter every 3x after that (ie. 6x & 9x), the player is assigned a ramdomly selected Time Baby mission from the three below. (CURRENTLY WORKING!)
