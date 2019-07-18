@@ -183,9 +183,7 @@ If the player reaches 618 hits on the jets, the 618 mode is activated. This is a
 
 ### It is Unseen
 
-Spelling the word "BILL" lights up the Society shot. The player has 23 seconds to shot the lit shot. (CURRENTLY WORKING!)
-
-(THE REST OF MODE NOT YET STARTED)
+Spelling the word "BILL" lights up the Society shot. The player has 23 seconds to shot the lit shot. This will knock down one of 3 drop targets. (CURRENTLY WORKING!) After 3 times through, the knocking down of the third target will activate the magnasaves. (THE REST OF MODE NOT YET STARTED)
 
 ### Into the Bunker
 
