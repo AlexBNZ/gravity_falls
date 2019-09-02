@@ -91,6 +91,10 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 (NOT YET STARTED)
 
+When all the scene ladders are competed this starts the Scary-oke mode.
+
+#### Scary-oke ####
+
 ### Zodiac Missions
 
 In a manner similar to the much-loved *The Addam's Family* pinball machine of yesteryear, the base challenge of the game is to work your way through all 10 different missions presented on the playfield zodiac. To activate a mission, the player must first spell "STAN" using those targets, which activates a 20 second window during which access to the lit Mystery Shack is granted. Shoot the Mystery Shack to light the Zodiac saucer. Once the lit Zodiac saucer is hit, the mode begins. The *Question Mark* mode is always lit first. (CURRENTLY WORKING!)
@@ -175,7 +179,7 @@ Once all three missions have been attempted, a new bonus mission begins.
 
 ### 618
 
-If the player reaches 618 hits on the jets, the 618 mode is activated. This is a 6-ball multiball on a 1 minute timer where the player can score 8 million points per ramp shot.
+If the player reaches 618 hits on the jets, the 618 mode is activated. This is a 6-ball multiball on a 1 minute timer where the player can score 8 million points per Tent of Telepathy or Mystery Shack VUK shot, 800 000 per ramp shot, and 80 000 per other shots.
 
 ### The Golf War
 
