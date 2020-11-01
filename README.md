@@ -75,7 +75,7 @@ Shooting the Scuttlebutt Island starts this mode. In order to swap everyone back
 
 * **Summerween**
 
-Shooting the Exyra Ball saucer starts this mode. To collect all the candy, the player must... (NOT YET STARTED)
+Shooting the Extra Ball saucer starts this mode. To collect all the candy, the player must... (NOT YET STARTED)
 
 #### Wendy Scene Ladder ####
 
