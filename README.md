@@ -61,7 +61,7 @@ Shooting the Tent of Telepathy starts this mode. To collect all the members of t
 
 * **Boss Mabel**
 
-Shooting the portal saucer starts this mode. In order to completely fill the money jat, the player must... (NOT YET STARTED)
+Shooting the Portal saucer starts this mode. In order to completely fill the money jat, the player must... (NOT YET STARTED)
 
 #### Soos Scene Ladder ####
 
@@ -71,7 +71,7 @@ Shooting the Watertower ramp starts this mode. To avoid being eaten by the Gobbl
 
 * **Carpet Diem**
 
-Shooting the Scuttlebutt Island starts this mode. In order to swap everyone back to their correct bodies, the player must... (NOT YET STARTED)
+Shooting Scuttlebutt Island starts this mode. In order to swap everyone back to their correct bodies, the player must... (NOT YET STARTED)
 
 * **Summerween**
 
