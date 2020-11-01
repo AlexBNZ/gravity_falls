@@ -209,7 +209,7 @@ Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell
 
 ### TOTEM Pole
 
-Spelling the word "TOTEM" confers lights one step on the Totem Pole (Beaver 2 > Beaver 1 > Bird 2 > Bird 1). Each time all four steps are completed it awards one of the four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
+Spelling the word "TOTEM" confers one step on the Totem Pole (Beaver 2 -> Beaver 1 -> Bird 2 -> Bird 1). Each time all four steps are completed it awards one of the four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
 
 * **1: Irrational Treasure (Beaver 2)**
 
@@ -221,12 +221,12 @@ Triggers a timed mode where for 30 seconds all regular shots and targets are wor
 
 * **3: Bottomless Pit! (Bird 2)**
 
-Light the Extra Ball saucer. (MOSTLY WORKING! - Awarding of extra ball not yet working.)
+Light the Extra Ball saucer. (MOSTLY WORKING! - Awarding of extra ball not yet added.)
 
 * **4: Dreamscaperers (Bird 1)**
 
-Starts a quick 2-ball multiball. (NOT YET STARTED)
+Starts a quick 2-ball multiball. (CURRENTLY WORKING!)
 
 * **5: Dungeons, Dungeons and More Dungeons**
 
-Once all for awards are achieved, each further completion of the Totem Pole earns the player 1 000 000 points. The Totem Pole awards can be reset by completing the Weirdmageddon mode.
+Once all for awards are achieved, each further completion of the Totem Pole earns the player 1 000 000 points. The Totem Pole awards can be reset by completing the Weirdmageddon mode. (MOSTLY WORKING! - Reset not yet added.)
