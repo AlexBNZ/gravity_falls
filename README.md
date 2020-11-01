@@ -155,15 +155,15 @@ Starting with reaching the 3x Baby bonus, and thereafter every 3x after that (ie
 
 * **Globnar**
 
-The player has to help Blendin pick up the anachronistic things left around Gravity Falls by hitting six shots. These are the Watertower ramp, Trembley's Cove shot, the Zodiac saucer, then Tent of Telepathy sacuer, the Mystery Shack ramp, and the Extra Ball saucer.
+The player has to help Blendin pick up the anachronistic things left around Gravity Falls by hitting six shots in a random order. These shots are the Watertower ramp, Trembley's Cove, the Zodiac saucer, Tent of Telepathy sacuer, the Mystery Shack ramp, and the Extra Ball saucer.
 
 * **The Inconveniencing**
 
-The player has 35 seconds to shot six different lit shots and collect the hurry up which starts at 15 million points: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, the Trembley's Cove shot, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
+The player has 35 seconds to shoot six different lit shots and collect the hurry up which starts at 15 million points. The shots, which can be completed in any order, are: the Portal target, the Tent of Telepathy saucer, the Watertower ramp, the Zodiac saucer, Trembley's Cove, and the Mystery Shack ramp. When all six shots are completed, the hurry up is awarded. The mode end when either the six shots are completed or the timer runs out (conferring whatever points remain in the hurry up). (CURRENTLY WORKING!)
 
 * **Land Before Swine**
 
-(NOT YET STARTED)
+The player has 25 seconds to hit as many of the six lit targets as possible. The lit targets are the Mystery, Trembley's Cove, the Zodiac saucer, the "S" in STAN, the "O" in TOTEM, and the second "L" in BILL.
 
 Once all three missions have been attempted, a new bonus mission begins.
 
@@ -173,13 +173,13 @@ Once all three missions have been attempted, a new bonus mission begins.
 
 * **Dipper and Mabel vs. the Future**
 
-(NOT YET STARTED)
+This (NOT YET STARTED)
 
 ## Additional Gameplay
 
 ### 618
 
-If the player reaches 618 hits on the jets, the 618 mode is activated. This is a 6-ball multiball on a 1 minute timer where the player can score 8 million points per Tent of Telepathy or Mystery Shack VUK shot, 800 000 per ramp shot, and 80 000 per other shots.
+If the player reaches 618 hits on the jets, the 618 mode is activated. This is a 6-ball multiball on a 1 minute timer where the player can score 800 000 points per Tent of Telepathy or Mystery Shack VUK shot, 80 000 per ramp shot, and 8000 per other shots.
 
 ### The Golf War
 
@@ -195,7 +195,7 @@ Spelling the word "BILL" lights up the Society shot. The player has 23 seconds t
 
 ### Into the Bunker
 
-Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total). When this is spelt, it opens up the bunker. The player has 20 seconds to shot for the bunker and if they manage the shot then 1 ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
+Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell "GRAVITY FALLS" (12 ramp shots in total) across the bottom of the screen. When this is completely spelt, it opens up the bunker. The player has 20 seconds to shot for the bunker and if they manage the shot then 1 ball is locked towards a 3-ball multiball. If they lock the ball or the timer runs out, the ramp count resets so they can try again. Once two balls are locked in the bunker, ramp shots no longer confer letters (at least until after the 3-ball multiball when it resets). (MOSTLY WORKING! - Except for letters remaining on screen at all times.)
 
 (THE REST OF MODE NOT YET STARTED)
 
@@ -209,20 +209,24 @@ Shooting ramp shots (Watertower, Mystery Shack) adds letters to eventually spell
 
 ### TOTEM Pole
 
-Spelling the word "TOTEM" confers four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
+Spelling the word "TOTEM" confers lights one step on the Totem Pole (Beaver 2 > Beaver 1 > Bird 2 > Bird 1). Each time all four steps are completed it awards one of the four awards in the following order below. Once the forth award is awarded it resets to allow the four awards to be collected again. (CURRENTLY WORKING!)
 
-* **1: Irrational Treasure**
+* **1: Irrational Treasure (Beaver 2)**
 
 Player awarded 100,000 points. (CURRENTLY WORKING!)
 
-* **2: A Tale of Two Stans**
+* **2: A Tale of Two Stans (Beaver 1)**
 
-Triggers a timed mode where for 30 seconds all shots and targets are worth double their normal value. (CURRENTLY WORKING!)
+Triggers a timed mode where for 30 seconds all regular shots and targets are worth double their normal value. (CURRENTLY WORKING!)
 
-* **3: Bottomless Pit!**
+* **3: Bottomless Pit! (Bird 2)**
 
 Light the Extra Ball saucer. (MOSTLY WORKING! - Awarding of extra ball not yet working.)
 
-* **4: Dreamscaperers**
+* **4: Dreamscaperers (Bird 1)**
 
 Starts a quick 2-ball multiball. (NOT YET STARTED)
+
+* **5: Dungeons, Dungeons and More Dungeons**
+
+Once all for awards are achieved, each further completion of the Totem Pole earns the player 1 000 000 points. The Totem Pole awards can be reset by completing the Weirdmageddon mode.
