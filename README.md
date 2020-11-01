@@ -39,57 +39,57 @@ The picking of a character (above) determines which of four scene ladders is ava
 
 * **Fight Fighters**
 
-(NOT YET STARTED)
+Shooting the Watertower ramp starts this mode. (NOT YET STARTED)
 
 * **Dipper vs. Manliness**
 
-(NOT YET STARTED)
+Shooting the Zodiac saucer starts this mode. To attack the Multi-Bear, the player must... (NOT YET STARTED)
 
 * **Little Dipper**
 
-(NOT YET STARTED)
+Shooting the Mystery shot starts this mode. The player must collect crystals by... (NOT YET STARTED)
 
 #### Mabel Scene Ladder ####
 
 * **The Last Mabelcorn**
 
-(NOT YET STARTED)
+Shooting the Mystery Shack ramp starts this mode. The player needs to find the hidden unicorn by... (NOT YET STARTED)
 
 * **Boyz Crazy**
 
-(NOT YET STARTED)
+Shooting the Tent of Telepathy starts this mode. To collect all the members of the band, the player must make 5 shots all on the same target. (NOT YET STARTED)
 
 * **Boss Mabel**
 
-(NOT YET STARTED)
+Shooting the portal saucer starts this mode. In order to completely fill the money jat, the player must... (NOT YET STARTED)
 
 #### Soos Scene Ladder ####
 
 * **The Legend of the Gobblewonker**
 
-To avoid being eaten by the Gobblewonker, the player must... (NOT YET STARTED)
+Shooting the Watertower ramp starts this mode. To avoid being eaten by the Gobblewonker, the player must... (NOT YET STARTED)
 
 * **Carpet Diem**
 
-In order to swap everyone back to their correct bodies, the player must... (NOT YET STARTED)
+Shooting the Scuttlebutt Island starts this mode. In order to swap everyone back to their correct bodies, the player must... (NOT YET STARTED)
 
 * **Summerween**
 
-To collect all the candy, the player must... (NOT YET STARTED)
+Shooting the Exyra Ball saucer starts this mode. To collect all the candy, the player must... (NOT YET STARTED)
 
 #### Wendy Scene Ladder ####
 
 * **Tourist Trapped**
 
-The player needs to "throw pinecones" to hit any 3 of the 8 lit shots: Extra Ball saucer, Myster Shack ramp, Tenth of Telepathy, Portal saucer, Water Tower ramp, Mystery Shack, Scuttlebutt Island, or Zodiac saucer. (MOSTLY WORKING! - Need to add scoring)
+Shooting the Mystery Shack ramp starts this mode. The player needs to throw pinecones to hit any 3 of the 8 lit shots: Extra Ball saucer, Mystery Shack ramp, Tenth of Telepathy, Portal saucer, Water Tower ramp, Mystery Shack, Scuttlebutt Island, or Zodiac saucer. (MOSTLY WORKING! - Need to add scoring)
 
 * **The Deep End**
 
-The player needs to rescue 4 swimmers by hitting 4 standup targets: one each from BILL (L1), STAN (A), TOTEM (M), and the Mystery shot.
+Shooting the Trembley's Cove starts this mode. The player needs to rescue 4 swimmers by hitting 4 standup targets: one each from BILL (L1), STAN (A), TOTEM (M), and the Mystery shot.
 
 * **Little Gift Shop of Horrors**
 
-In order to buy gifts, the player must hit 4 shots randomly selected from the following: BILL (L1), Trembley's Cove, Extra Ball saucer, Portal saucer, Scuttlebutt Island, Mystery Shack ramp, Myster Shack, STAN (A), TOTEM (M), the Mystery shot, Watertower ramp, or Zodiac saucer.
+Shooting the Mystery Shack starts this mode. In order to buy gifts, the player must hit 4 shots randomly selected from the following: BILL (L1), Trembley's Cove, Extra Ball saucer, Portal saucer, Scuttlebutt Island, Mystery Shack ramp, Myster Shack, STAN (A), TOTEM (M), the Mystery shot, Watertower ramp, or Zodiac saucer.
 
 When all the scene ladders are competed this starts the Scary-oke mode.
 
